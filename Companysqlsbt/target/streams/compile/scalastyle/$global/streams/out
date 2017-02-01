@@ -1,0 +1,46 @@
+[0m[[0minfo[0m] [0mscalastyle using config /home/akhil/IdeaProjects/Companysqlsbt/scalastyle-config.xml[0m
+[0m[[0mdebug[0m] [0mStarting scalastyle[0m
+[0m[[0mdebug[0m] [0mstart file /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala[0m
+[0m[[33mwarn[0m] [0m/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala:188:118: There should be a space after the plus (+) sign[0m
+[0m[[33mwarn[0m] [0m/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala:188:106: There should be a space before the plus (+) sign[0m
+[0m[[33mwarn[0m] [0m/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala:188:118: There should be a space before the plus (+) sign[0m
+[0m[[33mwarn[0m] [0m/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala:110: File line length exceeds 160 characters[0m
+[0m[[33mwarn[0m] [0m/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala:138: File line length exceeds 160 characters[0m
+[0m[[33mwarn[0m] [0m/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala:152: File line length exceeds 160 characters[0m
+[0m[[33mwarn[0m] [0m/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala:174: File line length exceeds 160 characters[0m
+[0m[[33mwarn[0m] [0m/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala:202: File line length exceeds 160 characters[0m
+[0m[[33mwarn[0m] [0m/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala:216: File line length exceeds 160 characters[0m
+[0m[[33mwarn[0m] [0m/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala:27:37: Magic Number[0m
+[0m[[33mwarn[0m] [0m/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala:28:39: Magic Number[0m
+[0m[[33mwarn[0m] [0m/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala:29:42: Magic Number[0m
+[0m[[33mwarn[0m] [0m/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala:67:41: Magic Number[0m
+[0m[[33mwarn[0m] [0m/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala:87:39: Magic Number[0m
+[0m[[33mwarn[0m] [0m/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala:99:8: Regular expression matched 'println'[0m
+[0m[[33mwarn[0m] [0m/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala:162:19: Regular expression matched 'println'[0m
+[0m[[33mwarn[0m] [0m/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala:226:19: Regular expression matched 'println'[0m
+[0m[[33mwarn[0m] [0m/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala:302:8: Regular expression matched 'println'[0m
+[0m[[33mwarn[0m] [0m/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala:14:6: Cyclomatic complexity of 14 exceeds max of 10[0m
+[0m[[33mwarn[0m] [0m/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala:14:6: Method is longer than 50 lines[0m
+[0m[[33mwarn[0m] [0m/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala:104:6: Method is longer than 50 lines[0m
+[0m[[33mwarn[0m] [0m/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala:167:6: Method is longer than 50 lines[0m
+[0m[[33mwarn[0m] [0m/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala:230:6: Method is longer than 50 lines[0m
+[0m[[33mwarn[0m] [0m/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala:14:6: Public method must have explicit type[0m
+[0m[[33mwarn[0m] [0m/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala:104:6: Public method must have explicit type[0m
+[0m[[33mwarn[0m] [0m/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala:167:6: Public method must have explicit type[0m
+[0m[[33mwarn[0m] [0m/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala:230:6: Public method must have explicit type[0m
+[0m[[33mwarn[0m] [0m/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala: File must end with newline character[0m
+[0m[[0mdebug[0m] [0mend file /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala[0m
+[0m[[0mdebug[0m] [0mstart file /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Employee.scala[0m
+[0m[[0mdebug[0m] [0mend file /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Employee.scala[0m
+[0m[[0mdebug[0m] [0mstart file /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Project.scala[0m
+[0m[[0mdebug[0m] [0mend file /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Project.scala[0m
+[0m[[0mdebug[0m] [0mstart file /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Client.scala[0m
+[0m[[0mdebug[0m] [0mend file /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Client.scala[0m
+[0m[[0mdebug[0m] [0mstart file /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Department.scala[0m
+[0m[[0mdebug[0m] [0mend file /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Department.scala[0m
+[0m[[0minfo[0m] [0mProcessed 5 file(s)[0m
+[0m[[0minfo[0m] [0mFound 0 errors[0m
+[0m[[0minfo[0m] [0mFound 28 warnings[0m
+[0m[[0minfo[0m] [0mFound 0 infos[0m
+[0m[[0minfo[0m] [0mFinished in 22 ms[0m
+[0m[[32msuccess[0m] [0mcreated output: /home/akhil/IdeaProjects/Companysqlsbt/target[0m

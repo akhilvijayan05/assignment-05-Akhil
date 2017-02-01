@@ -1,0 +1,96 @@
+[0m[[0mdebug[0m] [0m[naha] [0m
+[0m[[0mdebug[0m] [0m[naha] Initial source changes: [0m
+[0m[[0mdebug[0m] [0m[naha] 	removed:Set()[0m
+[0m[[0mdebug[0m] [0m[naha] 	added: Set(/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Client.scala, /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala, /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Employee.scala, /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Department.scala, /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Project.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] 	modified: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] Invalidated products: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] External API changes: API Changes: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] Modified binary dependencies: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] Initial directly invalidated sources: Set(/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Client.scala, /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala, /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Employee.scala, /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Department.scala, /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Project.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] [0m
+[0m[[0mdebug[0m] [0m[naha] Sources indirectly invalidated by:[0m
+[0m[[0mdebug[0m] [0m[naha] 	product: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] 	binary dep: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] 	external source: Set()[0m
+[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set(/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Client.scala, /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala, /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Employee.scala, /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Department.scala, /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Project.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] Initial set of included nodes: Set(/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Client.scala, /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala, /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Employee.scala, /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Department.scala, /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Project.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] Recompiling all 5 sources: invalidated sources (5) exceeded 50.0% of all sources[0m
+[0m[[0minfo[0m] [0mCompiling 5 Scala sources to /home/akhil/IdeaProjects/Companysqlsbt/target/scala-2.12/classes...[0m
+[0m[[0mdebug[0m] [0mGetting org.scala-sbt:compiler-interface:0.13.13:component from component compiler for Scala 2.12.1[0m
+[0m[[0mdebug[0m] [0mGetting org.scala-sbt:compiler-interface:0.13.13:component from component compiler for Scala 2.12.1[0m
+[0m[[0mdebug[0m] [0mRunning cached compiler 5a6ab241, interfacing (CompilerInterface) with Scala compiler version 2.12.1[0m
+[0m[[0mdebug[0m] [0mCalling Scala compiler with arguments  (CompilerInterface):[0m
+[0m[[0mdebug[0m] [0m	-Xplugin:/home/akhil/.ivy2/cache/org.scoverage/scalac-scoverage-plugin_2.12/jars/scalac-scoverage-plugin_2.12-1.3.0.jar[0m
+[0m[[0mdebug[0m] [0m	-P:scoverage:dataDir:/home/akhil/IdeaProjects/Companysqlsbt/target/scala-2.12/scoverage-data[0m
+[0m[[0mdebug[0m] [0m	-Yrangepos[0m
+[0m[[0mdebug[0m] [0m	-bootclasspath[0m
+[0m[[0mdebug[0m] [0m	/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/classes:/home/akhil/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.1.jar[0m
+[0m[[0mdebug[0m] [0m	-classpath[0m
+[0m[[0mdebug[0m] [0m	/home/akhil/IdeaProjects/Companysqlsbt/target/scala-2.12/classes:/home/akhil/.ivy2/cache/org.scoverage/scalac-scoverage-runtime_2.12/jars/scalac-scoverage-runtime_2.12-1.3.0.jar:/home/akhil/.ivy2/cache/org.scalatest/scalatest_2.12/bundles/scalatest_2.12-3.0.1.jar:/home/akhil/.ivy2/cache/org.scalactic/scalactic_2.12/bundles/scalactic_2.12-3.0.1.jar:/home/akhil/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.12.1.jar:/home/akhil/.ivy2/cache/org.scala-lang.modules/scala-xml_2.12/bundles/scala-xml_2.12-1.0.5.jar:/home/akhil/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.12/bundles/scala-parser-combinators_2.12-1.0.4.jar:/home/akhil/.ivy2/cache/mysql/mysql-connector-java/jars/mysql-connector-java-5.1.24.jar[0m
+[0m[[0minfo[0m] [0m[info] Cleaning datadir [/home/akhil/IdeaProjects/Companysqlsbt/target/scala-2.12/scoverage-data][0m
+[0m[[0minfo[0m] [0m[info] Beginning coverage instrumentation[0m
+[0m[[0minfo[0m] [0m[warn] Could not instrument [EmptyTree$/null]. No pos.[0m
+[0m[[0minfo[0m] [0m[warn] Could not instrument [EmptyTree$/null]. No pos.[0m
+[0m[[0minfo[0m] [0m[warn] Could not instrument [EmptyTree$/null]. No pos.[0m
+[0m[[0minfo[0m] [0m[warn] Could not instrument [EmptyTree$/null]. No pos.[0m
+[0m[[0minfo[0m] [0m[warn] Could not instrument [EmptyTree$/null]. No pos.[0m
+[0m[[0minfo[0m] [0m[warn] Could not instrument [EmptyTree$/null]. No pos.[0m
+[0m[[0minfo[0m] [0m[warn] Could not instrument [EmptyTree$/null]. No pos.[0m
+[0m[[0minfo[0m] [0m[warn] Could not instrument [EmptyTree$/null]. No pos.[0m
+[0m[[0minfo[0m] [0m[warn] Could not instrument [EmptyTree$/null]. No pos.[0m
+[0m[[0minfo[0m] [0m[warn] Could not instrument [EmptyTree$/null]. No pos.[0m
+[0m[[0minfo[0m] [0m[warn] Could not instrument [EmptyTree$/null]. No pos.[0m
+[0m[[0minfo[0m] [0m[warn] Could not instrument [EmptyTree$/null]. No pos.[0m
+[0m[[0minfo[0m] [0m[warn] Could not instrument [EmptyTree$/null]. No pos.[0m
+[0m[[0minfo[0m] [0m[warn] Could not instrument [EmptyTree$/null]. No pos.[0m
+[0m[[0minfo[0m] [0m[warn] Could not instrument [EmptyTree$/null]. No pos.[0m
+[0m[[0minfo[0m] [0m[warn] Could not instrument [EmptyTree$/null]. No pos.[0m
+[0m[[0minfo[0m] [0m[info] Instrumentation completed [224 statements][0m
+[0m[[0minfo[0m] [0m[info] Wrote instrumentation file [/home/akhil/IdeaProjects/Companysqlsbt/target/scala-2.12/scoverage-data/scoverage.coverage.xml][0m
+[0m[[0minfo[0m] [0m[info] Will write measurement data to [/home/akhil/IdeaProjects/Companysqlsbt/target/scala-2.12/scoverage-data][0m
+[0m[[0mdebug[0m] [0mScala compilation took 9.412515219 s[0m
+[0m[[0mdebug[0m] [0m[naha] Invalidating /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala...[0m
+[0m[[0mdebug[0m] [0m[naha] Invalidating (transitively) by inheritance from /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala...[0m
+[0m[[0mdebug[0m] [0m[naha] Initial set of included nodes: Set(/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] Invalidated by transitive inheritance dependency: Set(/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] The /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala source file has the following regular definitions changed:[0m
+[0m[[0mdebug[0m] [0m[naha] 	notify, wait, $asInstanceOf, url, equals, username, asInstanceOf, insertTable, synchronized, deleteTable, $isInstanceOf, notifyAll, updateTable, isInstanceOf, <init>, driver, ==, clone, EmployeeTableHandler, toString, !=, connection, getClass, ne, selectTable, eq, ##, finalize, hashCode, password.[0m
+[0m[[0mdebug[0m] [0m[naha] All member reference dependencies will be considered within this context.[0m
+[0m[[0mdebug[0m] [0m[naha] Invalidating /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Project.scala...[0m
+[0m[[0mdebug[0m] [0m[naha] Invalidating (transitively) by inheritance from /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Project.scala...[0m
+[0m[[0mdebug[0m] [0m[naha] Initial set of included nodes: Set(/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Project.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] Invalidated by transitive inheritance dependency: Set(/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Project.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] The /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Project.scala source file has the following regular definitions changed:[0m
+[0m[[0mdebug[0m] [0m[naha] 	notify, wait, Name, copy$default$2, $asInstanceOf, productArity, equals, asInstanceOf, synchronized, $isInstanceOf, Client_ID, canEqual, copy$default$4, productPrefix, notifyAll, isInstanceOf, <init>, Project_ID, ==, Project, clone, $init$, copy$default$3, copy, toString, !=, getClass, copy$default$1, ne, eq, productIterator, ##, finalize, productElement, hashCode, Dept_ID.[0m
+[0m[[0mdebug[0m] [0m[naha] All member reference dependencies will be considered within this context.[0m
+[0m[[0mdebug[0m] [0m[naha] The following modified names cause invalidation of /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala: Set(Name, asInstanceOf, Client_ID, isInstanceOf, <init>, Project_ID, Project, Dept_ID)[0m
+[0m[[0mdebug[0m] [0m[naha] Invalidating /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Department.scala...[0m
+[0m[[0mdebug[0m] [0m[naha] Invalidating (transitively) by inheritance from /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Department.scala...[0m
+[0m[[0mdebug[0m] [0m[naha] Initial set of included nodes: Set(/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Department.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] Invalidated by transitive inheritance dependency: Set(/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Department.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] The /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Department.scala source file has the following regular definitions changed:[0m
+[0m[[0mdebug[0m] [0m[naha] 	notify, Department, wait, Name, copy$default$2, $asInstanceOf, productArity, equals, asInstanceOf, synchronized, $isInstanceOf, canEqual, productPrefix, notifyAll, isInstanceOf, <init>, ==, clone, $init$, copy, toString, !=, getClass, copy$default$1, ne, eq, productIterator, ##, finalize, productElement, hashCode, Dept_ID.[0m
+[0m[[0mdebug[0m] [0m[naha] All member reference dependencies will be considered within this context.[0m
+[0m[[0mdebug[0m] [0m[naha] The following modified names cause invalidation of /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala: Set(Department, Name, asInstanceOf, isInstanceOf, <init>, Dept_ID)[0m
+[0m[[0mdebug[0m] [0m[naha] Invalidating /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Employee.scala...[0m
+[0m[[0mdebug[0m] [0m[naha] Invalidating (transitively) by inheritance from /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Employee.scala...[0m
+[0m[[0mdebug[0m] [0m[naha] Initial set of included nodes: Set(/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Employee.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] Invalidated by transitive inheritance dependency: Set(/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Employee.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] The /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Employee.scala source file has the following regular definitions changed:[0m
+[0m[[0mdebug[0m] [0m[naha] 	notify, wait, Name, copy$default$2, $asInstanceOf, copy$default$5, productArity, equals, Address, asInstanceOf, synchronized, $isInstanceOf, canEqual, copy$default$4, productPrefix, notifyAll, isInstanceOf, Phone, <init>, Project_ID, Emp_ID, ==, clone, $init$, copy$default$3, copy, toString, !=, getClass, copy$default$1, Employee, copy$default$6, ne, eq, productIterator, ##, finalize, productElement, hashCode, Dept_ID.[0m
+[0m[[0mdebug[0m] [0m[naha] All member reference dependencies will be considered within this context.[0m
+[0m[[0mdebug[0m] [0m[naha] The following modified names cause invalidation of /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala: Set(Name, Address, asInstanceOf, isInstanceOf, Phone, <init>, Project_ID, Emp_ID, Employee, Dept_ID)[0m
+[0m[[0mdebug[0m] [0m[naha] Invalidating /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Client.scala...[0m
+[0m[[0mdebug[0m] [0m[naha] Invalidating (transitively) by inheritance from /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Client.scala...[0m
+[0m[[0mdebug[0m] [0m[naha] Initial set of included nodes: Set(/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Client.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] Invalidated by transitive inheritance dependency: Set(/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Client.scala)[0m
+[0m[[0mdebug[0m] [0m[naha] The /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/Client.scala source file has the following regular definitions changed:[0m
+[0m[[0mdebug[0m] [0m[naha] 	notify, wait, Name, copy$default$2, $asInstanceOf, productArity, equals, Address, asInstanceOf, synchronized, $isInstanceOf, Client_ID, canEqual, copy$default$4, productPrefix, notifyAll, isInstanceOf, <init>, Project_ID, ==, clone, $init$, copy$default$3, copy, toString, !=, getClass, copy$default$1, Client, ne, eq, productIterator, ##, finalize, productElement, hashCode.[0m
+[0m[[0mdebug[0m] [0m[naha] All member reference dependencies will be considered within this context.[0m
+[0m[[0mdebug[0m] [0m[naha] The following modified names cause invalidation of /home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala: Set(Name, Address, asInstanceOf, Client_ID, isInstanceOf, <init>, Project_ID, Client)[0m
+[0m[[0mdebug[0m] [0m[naha] New invalidations:[0m
+[0m[[0mdebug[0m] [0m[naha] 	Set()[0m
+[0m[[0mdebug[0m] [0m[naha] Initial set of included nodes: Set()[0m
+[0m[[0mdebug[0m] [0m[naha] Previously invalidated, but (transitively) depend on new invalidations:[0m
+[0m[[0mdebug[0m] [0m[naha] 	Set()[0m
+[0m[[0mdebug[0m] [0m[naha] All newly invalidated sources after taking into account (previously) recompiled sources:Set()[0m

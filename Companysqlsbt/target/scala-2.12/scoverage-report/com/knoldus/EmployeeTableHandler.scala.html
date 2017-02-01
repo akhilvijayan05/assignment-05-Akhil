@@ -1,0 +1,5224 @@
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title id="title">
+          com/knoldus/EmployeeTableHandler.scala.html
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script>
+        <style>
+          table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } 
+        </style>
+      </head>
+      <body style="font-family: monospace;">
+        <ul class="nav nav-tabs">
+          <li>
+            <a href="#codegrid" data-toggle="tab">Codegrid</a>
+          </li>
+          <li>
+            <a href="#statementlist" data-toggle="tab">Statement List</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="codegrid">
+            <pre style='font-size: 12pt; font-family: courier;'>1 <span style=''>package com.knoldus
+</span>2 <span style=''>
+</span>3 <span style=''>/**
+</span>4 <span style=''>  * Created by akhil on 1/2/17.
+</span>5 <span style=''>  */
+</span>6 <span style=''>import java.sql.{Connection, DriverManager}
+</span>7 <span style=''>class EmployeeTableHandler {
+</span>8 <span style=''>  val url = </span><span style='background: #AEF1AE'>&quot;jdbc:mysql://localhost/employee&quot;</span><span style=''>
+</span>9 <span style=''>  val driver = </span><span style='background: #AEF1AE'>&quot;com.mysql.jdbc.Driver&quot;</span><span style=''>
+</span>10 <span style=''>  val username = </span><span style='background: #AEF1AE'>&quot;root&quot;</span><span style=''>
+</span>11 <span style=''>  val password = </span><span style='background: #AEF1AE'>&quot;akhil&quot;</span><span style=''>
+</span>12 <span style=''>  var connection: Connection = </span><span style='background: #AEF1AE'>DriverManager.getConnection(url, username, password)</span><span style=''>
+</span>13 <span style=''>
+</span>14 <span style=''>  def selectTable(Obj:Any) = {
+</span>15 <span style=''>
+</span>16 <span style=''>    Obj match {
+</span>17 <span style=''>
+</span>18 <span style=''>      case obj: Employee =&gt; {
+</span>19 <span style=''>        try {
+</span>20 <span style=''>          </span><span style='background: #AEF1AE'>Class.forName(driver)
+</span>21 <span style=''></span><span style='background: #AEF1AE'>          val statement = connection.createStatement
+</span>22 <span style=''></span><span style='background: #AEF1AE'>          val rs = statement.executeQuery(&quot;Select * FROM Employee&quot;)
+</span>23 <span style=''></span><span style='background: #AEF1AE'>          while (rs.next) </span><span style='background: #F0ADAD'>{
+</span>24 <span style=''></span><span style='background: #F0ADAD'>            val Emp_ID = rs.getString(1)
+</span>25 <span style=''></span><span style='background: #F0ADAD'>            val Name = rs.getString(2)
+</span>26 <span style=''></span><span style='background: #F0ADAD'>            val Address = rs.getString(3)
+</span>27 <span style=''></span><span style='background: #F0ADAD'>            val Phone = rs.getString(4)
+</span>28 <span style=''></span><span style='background: #F0ADAD'>            val Dept_ID = rs.getString(5)
+</span>29 <span style=''></span><span style='background: #F0ADAD'>            val Project_ID = rs.getString(6)
+</span>30 <span style=''></span><span style='background: #F0ADAD'>          }</span><span style=''>
+</span>31 <span style=''>        } catch {
+</span>32 <span style=''>          case e: Exception =&gt; {
+</span>33 <span style=''>            </span><span style='background: #F0ADAD'>e.printStackTrace</span><span style=''>;
+</span>34 <span style=''>            </span><span style='background: #F0ADAD'>false</span><span style=''>
+</span>35 <span style=''>          }
+</span>36 <span style=''>        }
+</span>37 <span style=''>        </span><span style='background: #AEF1AE'>connection.close</span><span style=''>
+</span>38 <span style=''>        </span><span style='background: #AEF1AE'>true</span><span style=''>
+</span>39 <span style=''>      }
+</span>40 <span style=''>      case obj: Department =&gt; {
+</span>41 <span style=''>        try {
+</span>42 <span style=''>          </span><span style='background: #AEF1AE'>Class.forName(driver)
+</span>43 <span style=''></span><span style='background: #AEF1AE'>          val statement = connection.createStatement
+</span>44 <span style=''></span><span style='background: #AEF1AE'>          val rs = </span><span style='background: #F0ADAD'>statement.executeQuery(&quot;Select * FROM Department&quot;)</span><span style='background: #AEF1AE'>
+</span>45 <span style=''></span><span style='background: #AEF1AE'>          while (</span><span style='background: #F0ADAD'>rs.next</span><span style='background: #AEF1AE'>) </span><span style='background: #F0ADAD'>{
+</span>46 <span style=''></span><span style='background: #F0ADAD'>            val Dept_ID = rs.getString(1)
+</span>47 <span style=''></span><span style='background: #F0ADAD'>            val Name = rs.getString(2)
+</span>48 <span style=''></span><span style='background: #F0ADAD'>          }</span><span style=''>
+</span>49 <span style=''>        } catch {
+</span>50 <span style=''>          case e: Exception =&gt; {
+</span>51 <span style=''>            </span><span style='background: #AEF1AE'>e.printStackTrace</span><span style=''>;
+</span>52 <span style=''>            </span><span style='background: #AEF1AE'>false</span><span style=''>
+</span>53 <span style=''>          }
+</span>54 <span style=''>        }
+</span>55 <span style=''>        </span><span style='background: #AEF1AE'>connection.close</span><span style=''>
+</span>56 <span style=''>        </span><span style='background: #AEF1AE'>true</span><span style=''>
+</span>57 <span style=''>      }
+</span>58 <span style=''>      case obj: Project =&gt; {
+</span>59 <span style=''>        try {
+</span>60 <span style=''>          </span><span style='background: #AEF1AE'>Class.forName(driver)
+</span>61 <span style=''></span><span style='background: #AEF1AE'>          val statement = connection.createStatement
+</span>62 <span style=''></span><span style='background: #AEF1AE'>          val rs = </span><span style='background: #F0ADAD'>statement.executeQuery(&quot;Select * FROM Project&quot;)</span><span style='background: #AEF1AE'>
+</span>63 <span style=''></span><span style='background: #AEF1AE'>          while (</span><span style='background: #F0ADAD'>rs.next</span><span style='background: #AEF1AE'>) </span><span style='background: #F0ADAD'>{
+</span>64 <span style=''></span><span style='background: #F0ADAD'>            val Project_ID = rs.getString(1)
+</span>65 <span style=''></span><span style='background: #F0ADAD'>            val Dept_ID = rs.getString(2)
+</span>66 <span style=''></span><span style='background: #F0ADAD'>            val Name = rs.getString(3)
+</span>67 <span style=''></span><span style='background: #F0ADAD'>            val Client_ID = rs.getString(4)
+</span>68 <span style=''></span><span style='background: #F0ADAD'>          }</span><span style=''>
+</span>69 <span style=''>        } catch {
+</span>70 <span style=''>          case e: Exception =&gt; {
+</span>71 <span style=''>            </span><span style='background: #AEF1AE'>e.printStackTrace</span><span style=''>;
+</span>72 <span style=''>            </span><span style='background: #AEF1AE'>false</span><span style=''>
+</span>73 <span style=''>          }
+</span>74 <span style=''>        }
+</span>75 <span style=''>        </span><span style='background: #AEF1AE'>connection.close</span><span style=''>
+</span>76 <span style=''>        </span><span style='background: #AEF1AE'>true</span><span style=''>
+</span>77 <span style=''>      }
+</span>78 <span style=''>      case obj: Client =&gt; {
+</span>79 <span style=''>        try {
+</span>80 <span style=''>          </span><span style='background: #AEF1AE'>Class.forName(driver)
+</span>81 <span style=''></span><span style='background: #AEF1AE'>          val statement = connection.createStatement
+</span>82 <span style=''></span><span style='background: #AEF1AE'>          val rs = </span><span style='background: #F0ADAD'>statement.executeQuery(&quot;Select * FROM Client&quot;)</span><span style='background: #AEF1AE'>
+</span>83 <span style=''></span><span style='background: #AEF1AE'>          while (</span><span style='background: #F0ADAD'>rs.next</span><span style='background: #AEF1AE'>) </span><span style='background: #F0ADAD'>{
+</span>84 <span style=''></span><span style='background: #F0ADAD'>            val Client_ID = rs.getString(1)
+</span>85 <span style=''></span><span style='background: #F0ADAD'>            val Project_ID = rs.getString(2)
+</span>86 <span style=''></span><span style='background: #F0ADAD'>            val Name = rs.getString(3)
+</span>87 <span style=''></span><span style='background: #F0ADAD'>            val Address = rs.getString(4)
+</span>88 <span style=''></span><span style='background: #F0ADAD'>          }</span><span style=''>
+</span>89 <span style=''>        } catch {
+</span>90 <span style=''>          case e: Exception =&gt; {
+</span>91 <span style=''>            </span><span style='background: #AEF1AE'>e.printStackTrace</span><span style=''>;
+</span>92 <span style=''>            </span><span style='background: #AEF1AE'>false</span><span style=''>
+</span>93 <span style=''>          }
+</span>94 <span style=''>        }
+</span>95 <span style=''>        </span><span style='background: #AEF1AE'>connection.close</span><span style=''>
+</span>96 <span style=''>        </span><span style='background: #AEF1AE'>true</span><span style=''>
+</span>97 <span style=''>      }
+</span>98 <span style=''>      case _: Any =&gt; {
+</span>99 <span style=''>        </span><span style='background: #F0ADAD'>println(&quot;wrong input&quot;)</span><span style=''>;
+</span>100 <span style=''>        </span><span style='background: #F0ADAD'>false</span><span style=''>
+</span>101 <span style=''>      }
+</span>102 <span style=''>    }
+</span>103 <span style=''>  }
+</span>104 <span style=''>  def insertTable(Obj: Any) = {
+</span>105 <span style=''>    Obj match {
+</span>106 <span style=''>      case obj:Employee=&gt;{
+</span>107 <span style=''>        try {
+</span>108 <span style=''>          </span><span style='background: #AEF1AE'>Class.forName(driver)
+</span>109 <span style=''></span><span style='background: #AEF1AE'>          val statement = connection.createStatement
+</span>110 <span style=''></span><span style='background: #AEF1AE'>          val rs = </span><span style='background: #F0ADAD'>statement.executeUpdate(&quot;insert into Employee(Emp_ID,Name,Address,Phone,Dept_ID,Project_ID) values('&quot; + obj.Emp_ID + &quot;','&quot; + obj.Name + &quot;','&quot; + obj.Address + &quot;','&quot; + obj.Phone + &quot;','&quot; + obj.Dept_ID + &quot;','&quot; + obj.Project_ID + &quot;')&quot;)</span><span style=''>
+</span>111 <span style=''>        } catch {
+</span>112 <span style=''>          case e: Exception =&gt; {
+</span>113 <span style=''>            </span><span style='background: #AEF1AE'>e.printStackTrace</span><span style=''>;
+</span>114 <span style=''>            </span><span style='background: #AEF1AE'>false</span><span style=''>
+</span>115 <span style=''>          }
+</span>116 <span style=''>        }
+</span>117 <span style=''>        </span><span style='background: #AEF1AE'>connection.close</span><span style=''>
+</span>118 <span style=''>        </span><span style='background: #AEF1AE'>true</span><span style=''>
+</span>119 <span style=''>      }
+</span>120 <span style=''>      case obj:Department=&gt;{
+</span>121 <span style=''>        try {
+</span>122 <span style=''>          </span><span style='background: #AEF1AE'>Class.forName(driver)
+</span>123 <span style=''></span><span style='background: #AEF1AE'>          val statement = connection.createStatement
+</span>124 <span style=''></span><span style='background: #AEF1AE'>          val rs = </span><span style='background: #F0ADAD'>statement.executeUpdate(&quot;insert into Department(Dept_ID,Name) values('&quot; + obj.Dept_ID + &quot;','&quot; + obj.Name +&quot;')&quot;)</span><span style=''>
+</span>125 <span style=''>        } catch {
+</span>126 <span style=''>          case e: Exception =&gt; {
+</span>127 <span style=''>            </span><span style='background: #AEF1AE'>e.printStackTrace</span><span style=''>;
+</span>128 <span style=''>            </span><span style='background: #AEF1AE'>false</span><span style=''>
+</span>129 <span style=''>          }
+</span>130 <span style=''>        }
+</span>131 <span style=''>        </span><span style='background: #AEF1AE'>connection.close</span><span style=''>
+</span>132 <span style=''>        </span><span style='background: #AEF1AE'>true</span><span style=''>
+</span>133 <span style=''>      }
+</span>134 <span style=''>      case obj:Project=&gt;{
+</span>135 <span style=''>        try {
+</span>136 <span style=''>          </span><span style='background: #AEF1AE'>Class.forName(driver)
+</span>137 <span style=''></span><span style='background: #AEF1AE'>          val statement = connection.createStatement
+</span>138 <span style=''></span><span style='background: #AEF1AE'>          val rs = </span><span style='background: #F0ADAD'>statement.executeUpdate(&quot;insert into Project(Project_ID,Dept_ID,Name,Client_ID) values('&quot; + obj.Project_ID + &quot;','&quot; + obj.Dept_ID + &quot;','&quot; + obj.Name + &quot;','&quot; + obj.Client_ID + &quot;')&quot;)</span><span style=''>
+</span>139 <span style=''>        } catch {
+</span>140 <span style=''>          case e: Exception =&gt; {
+</span>141 <span style=''>            </span><span style='background: #AEF1AE'>e.printStackTrace</span><span style=''>;
+</span>142 <span style=''>            </span><span style='background: #AEF1AE'>false</span><span style=''>
+</span>143 <span style=''>          }
+</span>144 <span style=''>        }
+</span>145 <span style=''>        </span><span style='background: #AEF1AE'>connection.close</span><span style=''>
+</span>146 <span style=''>        </span><span style='background: #AEF1AE'>true</span><span style=''>
+</span>147 <span style=''>      }
+</span>148 <span style=''>      case obj:Client=&gt;{
+</span>149 <span style=''>        try {
+</span>150 <span style=''>          </span><span style='background: #AEF1AE'>Class.forName(driver)
+</span>151 <span style=''></span><span style='background: #AEF1AE'>          val statement = connection.createStatement
+</span>152 <span style=''></span><span style='background: #AEF1AE'>          val rs = </span><span style='background: #F0ADAD'>statement.executeUpdate(&quot;insert into Client(Client_ID,Project_ID,Name,Address) values('&quot; + obj.Client_ID + &quot;','&quot; + obj.Project_ID + &quot;','&quot; + obj.Name + &quot;','&quot; + obj.Address + &quot;')&quot;)</span><span style=''>
+</span>153 <span style=''>        } catch {
+</span>154 <span style=''>          case e: Exception =&gt; {
+</span>155 <span style=''>            </span><span style='background: #AEF1AE'>e.printStackTrace</span><span style=''>;
+</span>156 <span style=''>            </span><span style='background: #AEF1AE'>false</span><span style=''>
+</span>157 <span style=''>          }
+</span>158 <span style=''>        }
+</span>159 <span style=''>        </span><span style='background: #AEF1AE'>connection.close</span><span style=''>
+</span>160 <span style=''>        </span><span style='background: #AEF1AE'>true</span><span style=''>
+</span>161 <span style=''>      }
+</span>162 <span style=''>      case _:Any=&gt;{</span><span style='background: #F0ADAD'>println(&quot;Wrong Input&quot;)</span><span style=''>;</span><span style='background: #F0ADAD'>false</span><span style=''>}
+</span>163 <span style=''>    }
+</span>164 <span style=''>
+</span>165 <span style=''>  }
+</span>166 <span style=''>
+</span>167 <span style=''>  def updateTable(Obj:Any) = {
+</span>168 <span style=''>
+</span>169 <span style=''>    Obj match {
+</span>170 <span style=''>      case obj:Employee=&gt;{
+</span>171 <span style=''>        try {
+</span>172 <span style=''>          </span><span style='background: #AEF1AE'>Class.forName(driver)
+</span>173 <span style=''></span><span style='background: #AEF1AE'>          val statement = connection.createStatement
+</span>174 <span style=''></span><span style='background: #AEF1AE'>          val rs = </span><span style='background: #F0ADAD'>statement.executeUpdate(&quot;update Employee SET Name='&quot; + obj.Name + &quot;',Address='&quot; + obj.Address + &quot;',Phone='&quot; + obj.Phone + &quot;',Dept_ID='&quot; + obj.Dept_ID + &quot;',Project_ID='&quot; + obj.Project_ID + &quot;' where Emp_ID=='&quot; + obj.Emp_ID + &quot;'&quot;)</span><span style=''>
+</span>175 <span style=''>        } catch {
+</span>176 <span style=''>          case e: Exception =&gt; {
+</span>177 <span style=''>            </span><span style='background: #AEF1AE'>e.printStackTrace</span><span style=''>;
+</span>178 <span style=''>            </span><span style='background: #AEF1AE'>false</span><span style=''>
+</span>179 <span style=''>          }
+</span>180 <span style=''>        }
+</span>181 <span style=''>        </span><span style='background: #AEF1AE'>connection.close</span><span style=''>
+</span>182 <span style=''>        </span><span style='background: #AEF1AE'>true</span><span style=''>
+</span>183 <span style=''>      }
+</span>184 <span style=''>      case obj:Department=&gt;{
+</span>185 <span style=''>        try {
+</span>186 <span style=''>          </span><span style='background: #AEF1AE'>Class.forName(driver)
+</span>187 <span style=''></span><span style='background: #AEF1AE'>          val statement = connection.createStatement
+</span>188 <span style=''></span><span style='background: #AEF1AE'>          val rs = </span><span style='background: #F0ADAD'>statement.executeUpdate(&quot;update Department SET Name='&quot; + obj.Name + &quot;' where Dept_ID='&quot;+obj.Dept_ID+&quot;'&quot;)</span><span style=''>
+</span>189 <span style=''>        } catch {
+</span>190 <span style=''>          case e: Exception =&gt; {
+</span>191 <span style=''>            </span><span style='background: #AEF1AE'>e.printStackTrace</span><span style=''>;
+</span>192 <span style=''>            </span><span style='background: #AEF1AE'>false</span><span style=''>
+</span>193 <span style=''>          }
+</span>194 <span style=''>        }
+</span>195 <span style=''>        </span><span style='background: #AEF1AE'>connection.close</span><span style=''>
+</span>196 <span style=''>        </span><span style='background: #AEF1AE'>true</span><span style=''>
+</span>197 <span style=''>      }
+</span>198 <span style=''>      case obj:Project=&gt;{
+</span>199 <span style=''>        try {
+</span>200 <span style=''>          </span><span style='background: #AEF1AE'>Class.forName(driver)
+</span>201 <span style=''></span><span style='background: #AEF1AE'>          val statement = connection.createStatement
+</span>202 <span style=''></span><span style='background: #AEF1AE'>          val rs = </span><span style='background: #F0ADAD'>statement.executeUpdate(&quot;update Project SET Dept_ID='&quot; + obj.Dept_ID + &quot;',Name='&quot; + obj.Name + &quot;',Client_ID='&quot; + obj.Client_ID + &quot;' where Project_ID=='&quot; + obj.Project_ID + &quot;'&quot;)</span><span style=''>
+</span>203 <span style=''>        } catch {
+</span>204 <span style=''>          case e: Exception =&gt; {
+</span>205 <span style=''>            </span><span style='background: #AEF1AE'>e.printStackTrace</span><span style=''>;
+</span>206 <span style=''>            </span><span style='background: #AEF1AE'>false</span><span style=''>
+</span>207 <span style=''>          }
+</span>208 <span style=''>        }
+</span>209 <span style=''>        </span><span style='background: #AEF1AE'>connection.close</span><span style=''>
+</span>210 <span style=''>        </span><span style='background: #AEF1AE'>true</span><span style=''>
+</span>211 <span style=''>      }
+</span>212 <span style=''>      case obj:Client=&gt;{
+</span>213 <span style=''>        try {
+</span>214 <span style=''>          </span><span style='background: #AEF1AE'>Class.forName(driver)
+</span>215 <span style=''></span><span style='background: #AEF1AE'>          val statement = connection.createStatement
+</span>216 <span style=''></span><span style='background: #AEF1AE'>          val rs = </span><span style='background: #F0ADAD'>statement.executeUpdate(&quot;update Client SET Project_ID='&quot; + obj.Project_ID + &quot;',Name='&quot; + obj.Name + &quot;',Address='&quot; + obj.Address + &quot;' where Client_ID=='&quot; + obj.Client_ID + &quot;'&quot;)</span><span style=''>
+</span>217 <span style=''>        } catch {
+</span>218 <span style=''>          case e: Exception =&gt; {
+</span>219 <span style=''>            </span><span style='background: #AEF1AE'>e.printStackTrace</span><span style=''>;
+</span>220 <span style=''>            </span><span style='background: #AEF1AE'>false</span><span style=''>
+</span>221 <span style=''>          }
+</span>222 <span style=''>        }
+</span>223 <span style=''>        </span><span style='background: #AEF1AE'>connection.close</span><span style=''>
+</span>224 <span style=''>        </span><span style='background: #AEF1AE'>true</span><span style=''>
+</span>225 <span style=''>      }
+</span>226 <span style=''>      case _:Any=&gt;{</span><span style='background: #F0ADAD'>println(&quot;Wrong Input&quot;)</span><span style=''>;</span><span style='background: #F0ADAD'>false</span><span style=''>}
+</span>227 <span style=''>    }
+</span>228 <span style=''>  }
+</span>229 <span style=''>
+</span>230 <span style=''>  def deleteTable(Obj:Any) = {
+</span>231 <span style=''>
+</span>232 <span style=''>    Obj match {
+</span>233 <span style=''>      case obj: Employee =&gt; {
+</span>234 <span style=''>        try {
+</span>235 <span style=''>
+</span>236 <span style=''>          </span><span style='background: #AEF1AE'>Class.forName(driver)
+</span>237 <span style=''></span><span style='background: #AEF1AE'>          val statement = connection.createStatement
+</span>238 <span style=''></span><span style='background: #AEF1AE'>          val rs = </span><span style='background: #F0ADAD'>statement.executeUpdate(&quot;Delete from Employee where Emp_ID=='&quot; + obj.Emp_ID + &quot;'&quot;)</span><span style=''>
+</span>239 <span style=''>        } catch {
+</span>240 <span style=''>
+</span>241 <span style=''>          case e: Exception =&gt; {
+</span>242 <span style=''>
+</span>243 <span style=''>            </span><span style='background: #AEF1AE'>e.printStackTrace</span><span style=''>;
+</span>244 <span style=''>            </span><span style='background: #AEF1AE'>false</span><span style=''>
+</span>245 <span style=''>          }
+</span>246 <span style=''>        }
+</span>247 <span style=''>        </span><span style='background: #AEF1AE'>connection.close</span><span style=''>
+</span>248 <span style=''>        </span><span style='background: #AEF1AE'>true</span><span style=''>
+</span>249 <span style=''>      }
+</span>250 <span style=''>      case obj: Department =&gt; {
+</span>251 <span style=''>        try {
+</span>252 <span style=''>
+</span>253 <span style=''>          </span><span style='background: #AEF1AE'>Class.forName(driver)
+</span>254 <span style=''></span><span style='background: #AEF1AE'>          val statement = connection.createStatement
+</span>255 <span style=''></span><span style='background: #AEF1AE'>          val rs = </span><span style='background: #F0ADAD'>statement.executeUpdate(&quot;Delete from Department where Dept_ID=='&quot; + obj.Dept_ID + &quot;'&quot;)</span><span style=''>
+</span>256 <span style=''>        } catch {
+</span>257 <span style=''>
+</span>258 <span style=''>          case e: Exception =&gt; {
+</span>259 <span style=''>
+</span>260 <span style=''>            </span><span style='background: #AEF1AE'>e.printStackTrace</span><span style=''>;
+</span>261 <span style=''>            </span><span style='background: #AEF1AE'>false</span><span style=''>
+</span>262 <span style=''>          }
+</span>263 <span style=''>        }
+</span>264 <span style=''>        </span><span style='background: #AEF1AE'>connection.close</span><span style=''>
+</span>265 <span style=''>        </span><span style='background: #AEF1AE'>true</span><span style=''>
+</span>266 <span style=''>      }
+</span>267 <span style=''>      case obj: Project =&gt; {
+</span>268 <span style=''>        try {
+</span>269 <span style=''>
+</span>270 <span style=''>          </span><span style='background: #AEF1AE'>Class.forName(driver)
+</span>271 <span style=''></span><span style='background: #AEF1AE'>          val statement = connection.createStatement
+</span>272 <span style=''></span><span style='background: #AEF1AE'>          val rs = </span><span style='background: #F0ADAD'>statement.executeUpdate(&quot;Delete from Project where Project_ID=='&quot; + obj.Project_ID + &quot;'&quot;)</span><span style=''>
+</span>273 <span style=''>        } catch {
+</span>274 <span style=''>
+</span>275 <span style=''>          case e: Exception =&gt; {
+</span>276 <span style=''>
+</span>277 <span style=''>            </span><span style='background: #AEF1AE'>e.printStackTrace</span><span style=''>;
+</span>278 <span style=''>            </span><span style='background: #AEF1AE'>false</span><span style=''>
+</span>279 <span style=''>          }
+</span>280 <span style=''>        }
+</span>281 <span style=''>        </span><span style='background: #AEF1AE'>connection.close</span><span style=''>
+</span>282 <span style=''>        </span><span style='background: #AEF1AE'>true</span><span style=''>
+</span>283 <span style=''>      }
+</span>284 <span style=''>      case obj: Client =&gt; {
+</span>285 <span style=''>        try {
+</span>286 <span style=''>
+</span>287 <span style=''>          </span><span style='background: #AEF1AE'>Class.forName(driver)
+</span>288 <span style=''></span><span style='background: #AEF1AE'>          val statement = connection.createStatement
+</span>289 <span style=''></span><span style='background: #AEF1AE'>          val rs = </span><span style='background: #F0ADAD'>statement.executeUpdate(&quot;Delete from Client where Client_ID=='&quot; + obj.Client_ID + &quot;'&quot;)</span><span style=''>
+</span>290 <span style=''>        } catch {
+</span>291 <span style=''>
+</span>292 <span style=''>          case e: Exception =&gt; {
+</span>293 <span style=''>
+</span>294 <span style=''>            </span><span style='background: #AEF1AE'>e.printStackTrace</span><span style=''>;
+</span>295 <span style=''>            </span><span style='background: #AEF1AE'>false</span><span style=''>
+</span>296 <span style=''>          }
+</span>297 <span style=''>        }
+</span>298 <span style=''>        </span><span style='background: #AEF1AE'>connection.close</span><span style=''>
+</span>299 <span style=''>        </span><span style='background: #AEF1AE'>true</span><span style=''>
+</span>300 <span style=''>      }
+</span>301 <span style=''>      case _: Any =&gt; {
+</span>302 <span style=''>        </span><span style='background: #F0ADAD'>println(&quot;Wrong Input&quot;)</span><span style=''>;
+</span>303 <span style=''>        </span><span style='background: #F0ADAD'>false</span><span style=''>
+</span>304 <span style=''>      }
+</span>305 <span style=''>    }
+</span>306 <span style=''>  }
+</span>307 <span style=''>}
+</span></pre>
+          </div>
+          <div class="tab-pane" id="statementlist">
+            <table cellspacing="0" cellpadding="0" class="table statementlist">
+      <tr>
+        <th>Line</th>
+        <th>Stmt Id</th>
+        <th>Pos</th>
+        <th>Tree</th>
+        <th>Symbol</th>
+        <th>Code</th>
+      </tr><tr>
+        <td>
+          8
+        </td>
+        <td>
+          1
+        </td>
+        <td>
+          147
+          -
+          180
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;jdbc:mysql://localhost/employee&quot;
+        </td>
+      </tr><tr>
+        <td>
+          9
+        </td>
+        <td>
+          2
+        </td>
+        <td>
+          196
+          -
+          219
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;com.mysql.jdbc.Driver&quot;
+        </td>
+      </tr><tr>
+        <td>
+          10
+        </td>
+        <td>
+          3
+        </td>
+        <td>
+          237
+          -
+          243
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;root&quot;
+        </td>
+      </tr><tr>
+        <td>
+          11
+        </td>
+        <td>
+          4
+        </td>
+        <td>
+          261
+          -
+          268
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;akhil&quot;
+        </td>
+      </tr><tr>
+        <td>
+          12
+        </td>
+        <td>
+          8
+        </td>
+        <td>
+          300
+          -
+          352
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.DriverManager.getConnection
+        </td>
+        <td style="background: #AEF1AE">
+          java.sql.DriverManager.getConnection(EmployeeTableHandler.this.url, EmployeeTableHandler.this.username, EmployeeTableHandler.this.password)
+        </td>
+      </tr><tr>
+        <td>
+          12
+        </td>
+        <td>
+          5
+        </td>
+        <td>
+          328
+          -
+          331
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          com.knoldus.EmployeeTableHandler.url
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.url
+        </td>
+      </tr><tr>
+        <td>
+          12
+        </td>
+        <td>
+          7
+        </td>
+        <td>
+          343
+          -
+          351
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          com.knoldus.EmployeeTableHandler.password
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.password
+        </td>
+      </tr><tr>
+        <td>
+          12
+        </td>
+        <td>
+          6
+        </td>
+        <td>
+          333
+          -
+          341
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          com.knoldus.EmployeeTableHandler.username
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.username
+        </td>
+      </tr><tr>
+        <td>
+          19
+        </td>
+        <td>
+          25
+        </td>
+        <td>
+          457
+          -
+          888
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          {
+  java.lang.Class.forName(EmployeeTableHandler.this.driver);
+  val statement: java.sql.Statement = EmployeeTableHandler.this.connection.createStatement();
+  val rs: java.sql.ResultSet = statement.executeQuery(&quot;Select * FROM Employee&quot;);
+  while$1(){
+    if (rs.next())
+      {
+        {
+          val Emp_ID: String = rs.getString(1);
+          val Name: String = rs.getString(2);
+          val Address: String = rs.getString(3);
+          val Phone: String = rs.getString(4);
+          val Dept_ID: String = rs.getString(5);
+          val Project_ID: String = rs.getString(6);
+          ()
+        };
+        while$1()
+      }
+    else
+      ()
+  }
+}
+        </td>
+      </tr><tr>
+        <td>
+          20
+        </td>
+        <td>
+          10
+        </td>
+        <td>
+          457
+          -
+          478
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Class.forName
+        </td>
+        <td style="background: #AEF1AE">
+          java.lang.Class.forName(EmployeeTableHandler.this.driver)
+        </td>
+      </tr><tr>
+        <td>
+          20
+        </td>
+        <td>
+          9
+        </td>
+        <td>
+          471
+          -
+          477
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          com.knoldus.EmployeeTableHandler.driver
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.driver
+        </td>
+      </tr><tr>
+        <td>
+          21
+        </td>
+        <td>
+          11
+        </td>
+        <td>
+          505
+          -
+          531
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.createStatement
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.createStatement()
+        </td>
+      </tr><tr>
+        <td>
+          22
+        </td>
+        <td>
+          12
+        </td>
+        <td>
+          551
+          -
+          599
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Statement.executeQuery
+        </td>
+        <td style="background: #AEF1AE">
+          statement.executeQuery(&quot;Select * FROM Employee&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          23
+        </td>
+        <td>
+          23
+        </td>
+        <td>
+          610
+          -
+          610
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          ()
+        </td>
+      </tr><tr>
+        <td>
+          23
+        </td>
+        <td>
+          13
+        </td>
+        <td>
+          617
+          -
+          624
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.ResultSet.next
+        </td>
+        <td style="background: #AEF1AE">
+          rs.next()
+        </td>
+      </tr><tr>
+        <td>
+          23
+        </td>
+        <td>
+          22
+        </td>
+        <td>
+          626
+          -
+          888
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          {
+  {
+    val Emp_ID: String = rs.getString(1);
+    val Name: String = rs.getString(2);
+    val Address: String = rs.getString(3);
+    val Phone: String = rs.getString(4);
+    val Dept_ID: String = rs.getString(5);
+    val Project_ID: String = rs.getString(6);
+    ()
+  };
+  while$1()
+}
+        </td>
+      </tr><tr>
+        <td>
+          23
+        </td>
+        <td>
+          21
+        </td>
+        <td>
+          626
+          -
+          626
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          com.knoldus.EmployeeTableHandler.while$1
+        </td>
+        <td style="background: #F0ADAD">
+          while$1()
+        </td>
+      </tr><tr>
+        <td>
+          23
+        </td>
+        <td>
+          24
+        </td>
+        <td>
+          610
+          -
+          610
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          ()
+        </td>
+      </tr><tr>
+        <td>
+          24
+        </td>
+        <td>
+          14
+        </td>
+        <td>
+          653
+          -
+          668
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.ResultSet.getString
+        </td>
+        <td style="background: #F0ADAD">
+          rs.getString(1)
+        </td>
+      </tr><tr>
+        <td>
+          25
+        </td>
+        <td>
+          15
+        </td>
+        <td>
+          692
+          -
+          707
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.ResultSet.getString
+        </td>
+        <td style="background: #F0ADAD">
+          rs.getString(2)
+        </td>
+      </tr><tr>
+        <td>
+          26
+        </td>
+        <td>
+          16
+        </td>
+        <td>
+          734
+          -
+          749
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.ResultSet.getString
+        </td>
+        <td style="background: #F0ADAD">
+          rs.getString(3)
+        </td>
+      </tr><tr>
+        <td>
+          27
+        </td>
+        <td>
+          17
+        </td>
+        <td>
+          774
+          -
+          789
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.ResultSet.getString
+        </td>
+        <td style="background: #F0ADAD">
+          rs.getString(4)
+        </td>
+      </tr><tr>
+        <td>
+          28
+        </td>
+        <td>
+          18
+        </td>
+        <td>
+          816
+          -
+          831
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.ResultSet.getString
+        </td>
+        <td style="background: #F0ADAD">
+          rs.getString(5)
+        </td>
+      </tr><tr>
+        <td>
+          29
+        </td>
+        <td>
+          19
+        </td>
+        <td>
+          861
+          -
+          876
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.ResultSet.getString
+        </td>
+        <td style="background: #F0ADAD">
+          rs.getString(6)
+        </td>
+      </tr><tr>
+        <td>
+          30
+        </td>
+        <td>
+          20
+        </td>
+        <td>
+          887
+          -
+          887
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          ()
+        </td>
+      </tr><tr>
+        <td>
+          33
+        </td>
+        <td>
+          26
+        </td>
+        <td>
+          952
+          -
+          969
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Throwable.printStackTrace
+        </td>
+        <td style="background: #F0ADAD">
+          e.printStackTrace()
+        </td>
+      </tr><tr>
+        <td>
+          34
+        </td>
+        <td>
+          27
+        </td>
+        <td>
+          983
+          -
+          988
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          false
+        </td>
+      </tr><tr>
+        <td>
+          37
+        </td>
+        <td>
+          28
+        </td>
+        <td>
+          1019
+          -
+          1035
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.close
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.close()
+        </td>
+      </tr><tr>
+        <td>
+          38
+        </td>
+        <td>
+          29
+        </td>
+        <td>
+          1044
+          -
+          1048
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          true
+        </td>
+      </tr><tr>
+        <td>
+          41
+        </td>
+        <td>
+          42
+        </td>
+        <td>
+          1113
+          -
+          1378
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          {
+  java.lang.Class.forName(EmployeeTableHandler.this.driver);
+  val statement: java.sql.Statement = EmployeeTableHandler.this.connection.createStatement();
+  val rs: java.sql.ResultSet = statement.executeQuery(&quot;Select * FROM Department&quot;);
+  while$2(){
+    if (rs.next())
+      {
+        {
+          val Dept_ID: String = rs.getString(1);
+          val Name: String = rs.getString(2);
+          ()
+        };
+        while$2()
+      }
+    else
+      ()
+  }
+}
+        </td>
+      </tr><tr>
+        <td>
+          42
+        </td>
+        <td>
+          31
+        </td>
+        <td>
+          1113
+          -
+          1134
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Class.forName
+        </td>
+        <td style="background: #AEF1AE">
+          java.lang.Class.forName(EmployeeTableHandler.this.driver)
+        </td>
+      </tr><tr>
+        <td>
+          42
+        </td>
+        <td>
+          30
+        </td>
+        <td>
+          1127
+          -
+          1133
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          com.knoldus.EmployeeTableHandler.driver
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.driver
+        </td>
+      </tr><tr>
+        <td>
+          43
+        </td>
+        <td>
+          32
+        </td>
+        <td>
+          1161
+          -
+          1187
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.createStatement
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.createStatement()
+        </td>
+      </tr><tr>
+        <td>
+          44
+        </td>
+        <td>
+          33
+        </td>
+        <td>
+          1207
+          -
+          1257
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Statement.executeQuery
+        </td>
+        <td style="background: #F0ADAD">
+          statement.executeQuery(&quot;Select * FROM Department&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          45
+        </td>
+        <td>
+          41
+        </td>
+        <td>
+          1268
+          -
+          1268
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          ()
+        </td>
+      </tr><tr>
+        <td>
+          45
+        </td>
+        <td>
+          38
+        </td>
+        <td>
+          1284
+          -
+          1284
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          com.knoldus.EmployeeTableHandler.while$2
+        </td>
+        <td style="background: #F0ADAD">
+          while$2()
+        </td>
+      </tr><tr>
+        <td>
+          45
+        </td>
+        <td>
+          40
+        </td>
+        <td>
+          1268
+          -
+          1268
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          ()
+        </td>
+      </tr><tr>
+        <td>
+          45
+        </td>
+        <td>
+          34
+        </td>
+        <td>
+          1275
+          -
+          1282
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.ResultSet.next
+        </td>
+        <td style="background: #F0ADAD">
+          rs.next()
+        </td>
+      </tr><tr>
+        <td>
+          45
+        </td>
+        <td>
+          39
+        </td>
+        <td>
+          1284
+          -
+          1378
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          {
+  {
+    val Dept_ID: String = rs.getString(1);
+    val Name: String = rs.getString(2);
+    ()
+  };
+  while$2()
+}
+        </td>
+      </tr><tr>
+        <td>
+          46
+        </td>
+        <td>
+          35
+        </td>
+        <td>
+          1312
+          -
+          1327
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.ResultSet.getString
+        </td>
+        <td style="background: #F0ADAD">
+          rs.getString(1)
+        </td>
+      </tr><tr>
+        <td>
+          47
+        </td>
+        <td>
+          36
+        </td>
+        <td>
+          1351
+          -
+          1366
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.ResultSet.getString
+        </td>
+        <td style="background: #F0ADAD">
+          rs.getString(2)
+        </td>
+      </tr><tr>
+        <td>
+          48
+        </td>
+        <td>
+          37
+        </td>
+        <td>
+          1377
+          -
+          1377
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          ()
+        </td>
+      </tr><tr>
+        <td>
+          51
+        </td>
+        <td>
+          43
+        </td>
+        <td>
+          1442
+          -
+          1459
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Throwable.printStackTrace
+        </td>
+        <td style="background: #AEF1AE">
+          e.printStackTrace()
+        </td>
+      </tr><tr>
+        <td>
+          52
+        </td>
+        <td>
+          44
+        </td>
+        <td>
+          1473
+          -
+          1478
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          false
+        </td>
+      </tr><tr>
+        <td>
+          55
+        </td>
+        <td>
+          45
+        </td>
+        <td>
+          1509
+          -
+          1525
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.close
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.close()
+        </td>
+      </tr><tr>
+        <td>
+          56
+        </td>
+        <td>
+          46
+        </td>
+        <td>
+          1534
+          -
+          1538
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          true
+        </td>
+      </tr><tr>
+        <td>
+          59
+        </td>
+        <td>
+          61
+        </td>
+        <td>
+          1600
+          -
+          1951
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          {
+  java.lang.Class.forName(EmployeeTableHandler.this.driver);
+  val statement: java.sql.Statement = EmployeeTableHandler.this.connection.createStatement();
+  val rs: java.sql.ResultSet = statement.executeQuery(&quot;Select * FROM Project&quot;);
+  while$3(){
+    if (rs.next())
+      {
+        {
+          val Project_ID: String = rs.getString(1);
+          val Dept_ID: String = rs.getString(2);
+          val Name: String = rs.getString(3);
+          val Client_ID: String = rs.getString(4);
+          ()
+        };
+        while$3()
+      }
+    else
+      ()
+  }
+}
+        </td>
+      </tr><tr>
+        <td>
+          60
+        </td>
+        <td>
+          47
+        </td>
+        <td>
+          1614
+          -
+          1620
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          com.knoldus.EmployeeTableHandler.driver
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.driver
+        </td>
+      </tr><tr>
+        <td>
+          60
+        </td>
+        <td>
+          48
+        </td>
+        <td>
+          1600
+          -
+          1621
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Class.forName
+        </td>
+        <td style="background: #AEF1AE">
+          java.lang.Class.forName(EmployeeTableHandler.this.driver)
+        </td>
+      </tr><tr>
+        <td>
+          61
+        </td>
+        <td>
+          49
+        </td>
+        <td>
+          1648
+          -
+          1674
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.createStatement
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.createStatement()
+        </td>
+      </tr><tr>
+        <td>
+          62
+        </td>
+        <td>
+          50
+        </td>
+        <td>
+          1694
+          -
+          1741
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Statement.executeQuery
+        </td>
+        <td style="background: #F0ADAD">
+          statement.executeQuery(&quot;Select * FROM Project&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          59
+        </td>
+        <td>
+          1752
+          -
+          1752
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          ()
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          58
+        </td>
+        <td>
+          1768
+          -
+          1951
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          {
+  {
+    val Project_ID: String = rs.getString(1);
+    val Dept_ID: String = rs.getString(2);
+    val Name: String = rs.getString(3);
+    val Client_ID: String = rs.getString(4);
+    ()
+  };
+  while$3()
+}
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          60
+        </td>
+        <td>
+          1752
+          -
+          1752
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          ()
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          57
+        </td>
+        <td>
+          1768
+          -
+          1768
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          com.knoldus.EmployeeTableHandler.while$3
+        </td>
+        <td style="background: #F0ADAD">
+          while$3()
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          51
+        </td>
+        <td>
+          1759
+          -
+          1766
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.ResultSet.next
+        </td>
+        <td style="background: #F0ADAD">
+          rs.next()
+        </td>
+      </tr><tr>
+        <td>
+          64
+        </td>
+        <td>
+          52
+        </td>
+        <td>
+          1799
+          -
+          1814
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.ResultSet.getString
+        </td>
+        <td style="background: #F0ADAD">
+          rs.getString(1)
+        </td>
+      </tr><tr>
+        <td>
+          65
+        </td>
+        <td>
+          53
+        </td>
+        <td>
+          1841
+          -
+          1856
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.ResultSet.getString
+        </td>
+        <td style="background: #F0ADAD">
+          rs.getString(2)
+        </td>
+      </tr><tr>
+        <td>
+          66
+        </td>
+        <td>
+          54
+        </td>
+        <td>
+          1880
+          -
+          1895
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.ResultSet.getString
+        </td>
+        <td style="background: #F0ADAD">
+          rs.getString(3)
+        </td>
+      </tr><tr>
+        <td>
+          67
+        </td>
+        <td>
+          55
+        </td>
+        <td>
+          1924
+          -
+          1939
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.ResultSet.getString
+        </td>
+        <td style="background: #F0ADAD">
+          rs.getString(4)
+        </td>
+      </tr><tr>
+        <td>
+          68
+        </td>
+        <td>
+          56
+        </td>
+        <td>
+          1950
+          -
+          1950
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          ()
+        </td>
+      </tr><tr>
+        <td>
+          71
+        </td>
+        <td>
+          62
+        </td>
+        <td>
+          2015
+          -
+          2032
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Throwable.printStackTrace
+        </td>
+        <td style="background: #AEF1AE">
+          e.printStackTrace()
+        </td>
+      </tr><tr>
+        <td>
+          72
+        </td>
+        <td>
+          63
+        </td>
+        <td>
+          2046
+          -
+          2051
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          false
+        </td>
+      </tr><tr>
+        <td>
+          75
+        </td>
+        <td>
+          64
+        </td>
+        <td>
+          2082
+          -
+          2098
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.close
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.close()
+        </td>
+      </tr><tr>
+        <td>
+          76
+        </td>
+        <td>
+          65
+        </td>
+        <td>
+          2107
+          -
+          2111
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          true
+        </td>
+      </tr><tr>
+        <td>
+          79
+        </td>
+        <td>
+          80
+        </td>
+        <td>
+          2172
+          -
+          2522
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          {
+  java.lang.Class.forName(EmployeeTableHandler.this.driver);
+  val statement: java.sql.Statement = EmployeeTableHandler.this.connection.createStatement();
+  val rs: java.sql.ResultSet = statement.executeQuery(&quot;Select * FROM Client&quot;);
+  while$4(){
+    if (rs.next())
+      {
+        {
+          val Client_ID: String = rs.getString(1);
+          val Project_ID: String = rs.getString(2);
+          val Name: String = rs.getString(3);
+          val Address: String = rs.getString(4);
+          ()
+        };
+        while$4()
+      }
+    else
+      ()
+  }
+}
+        </td>
+      </tr><tr>
+        <td>
+          80
+        </td>
+        <td>
+          67
+        </td>
+        <td>
+          2172
+          -
+          2193
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Class.forName
+        </td>
+        <td style="background: #AEF1AE">
+          java.lang.Class.forName(EmployeeTableHandler.this.driver)
+        </td>
+      </tr><tr>
+        <td>
+          80
+        </td>
+        <td>
+          66
+        </td>
+        <td>
+          2186
+          -
+          2192
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          com.knoldus.EmployeeTableHandler.driver
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.driver
+        </td>
+      </tr><tr>
+        <td>
+          81
+        </td>
+        <td>
+          68
+        </td>
+        <td>
+          2220
+          -
+          2246
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.createStatement
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.createStatement()
+        </td>
+      </tr><tr>
+        <td>
+          82
+        </td>
+        <td>
+          69
+        </td>
+        <td>
+          2266
+          -
+          2312
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Statement.executeQuery
+        </td>
+        <td style="background: #F0ADAD">
+          statement.executeQuery(&quot;Select * FROM Client&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          83
+        </td>
+        <td>
+          77
+        </td>
+        <td>
+          2339
+          -
+          2522
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          {
+  {
+    val Client_ID: String = rs.getString(1);
+    val Project_ID: String = rs.getString(2);
+    val Name: String = rs.getString(3);
+    val Address: String = rs.getString(4);
+    ()
+  };
+  while$4()
+}
+        </td>
+      </tr><tr>
+        <td>
+          83
+        </td>
+        <td>
+          76
+        </td>
+        <td>
+          2339
+          -
+          2339
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          com.knoldus.EmployeeTableHandler.while$4
+        </td>
+        <td style="background: #F0ADAD">
+          while$4()
+        </td>
+      </tr><tr>
+        <td>
+          83
+        </td>
+        <td>
+          79
+        </td>
+        <td>
+          2323
+          -
+          2323
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          ()
+        </td>
+      </tr><tr>
+        <td>
+          83
+        </td>
+        <td>
+          70
+        </td>
+        <td>
+          2330
+          -
+          2337
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.ResultSet.next
+        </td>
+        <td style="background: #F0ADAD">
+          rs.next()
+        </td>
+      </tr><tr>
+        <td>
+          83
+        </td>
+        <td>
+          78
+        </td>
+        <td>
+          2323
+          -
+          2323
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          ()
+        </td>
+      </tr><tr>
+        <td>
+          84
+        </td>
+        <td>
+          71
+        </td>
+        <td>
+          2369
+          -
+          2384
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.ResultSet.getString
+        </td>
+        <td style="background: #F0ADAD">
+          rs.getString(1)
+        </td>
+      </tr><tr>
+        <td>
+          85
+        </td>
+        <td>
+          72
+        </td>
+        <td>
+          2414
+          -
+          2429
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.ResultSet.getString
+        </td>
+        <td style="background: #F0ADAD">
+          rs.getString(2)
+        </td>
+      </tr><tr>
+        <td>
+          86
+        </td>
+        <td>
+          73
+        </td>
+        <td>
+          2453
+          -
+          2468
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.ResultSet.getString
+        </td>
+        <td style="background: #F0ADAD">
+          rs.getString(3)
+        </td>
+      </tr><tr>
+        <td>
+          87
+        </td>
+        <td>
+          74
+        </td>
+        <td>
+          2495
+          -
+          2510
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.ResultSet.getString
+        </td>
+        <td style="background: #F0ADAD">
+          rs.getString(4)
+        </td>
+      </tr><tr>
+        <td>
+          88
+        </td>
+        <td>
+          75
+        </td>
+        <td>
+          2521
+          -
+          2521
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          ()
+        </td>
+      </tr><tr>
+        <td>
+          91
+        </td>
+        <td>
+          81
+        </td>
+        <td>
+          2586
+          -
+          2603
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Throwable.printStackTrace
+        </td>
+        <td style="background: #AEF1AE">
+          e.printStackTrace()
+        </td>
+      </tr><tr>
+        <td>
+          92
+        </td>
+        <td>
+          82
+        </td>
+        <td>
+          2617
+          -
+          2622
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          false
+        </td>
+      </tr><tr>
+        <td>
+          95
+        </td>
+        <td>
+          83
+        </td>
+        <td>
+          2653
+          -
+          2669
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.close
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.close()
+        </td>
+      </tr><tr>
+        <td>
+          96
+        </td>
+        <td>
+          84
+        </td>
+        <td>
+          2678
+          -
+          2682
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          true
+        </td>
+      </tr><tr>
+        <td>
+          99
+        </td>
+        <td>
+          85
+        </td>
+        <td>
+          2722
+          -
+          2744
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.Predef.println
+        </td>
+        <td style="background: #F0ADAD">
+          scala.Predef.println(&quot;wrong input&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          100
+        </td>
+        <td>
+          86
+        </td>
+        <td>
+          2754
+          -
+          2759
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          false
+        </td>
+      </tr><tr>
+        <td>
+          107
+        </td>
+        <td>
+          93
+        </td>
+        <td>
+          2877
+          -
+          3201
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          {
+  java.lang.Class.forName(EmployeeTableHandler.this.driver);
+  val statement: java.sql.Statement = EmployeeTableHandler.this.connection.createStatement();
+  val rs: Int = statement.executeUpdate(&quot;insert into Employee(Emp_ID,Name,Address,Phone,Dept_ID,Project_ID) values(\'&quot;.+(obj.Emp_ID).+(&quot;\',\'&quot;).+(obj.Name).+(&quot;\',\'&quot;).+(obj.Address).+(&quot;\',\'&quot;).+(obj.Phone).+(&quot;\',\'&quot;).+(obj.Dept_ID).+(&quot;\',\'&quot;).+(obj.Project_ID).+(&quot;\')&quot;));
+  ()
+}
+        </td>
+      </tr><tr>
+        <td>
+          108
+        </td>
+        <td>
+          88
+        </td>
+        <td>
+          2877
+          -
+          2898
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Class.forName
+        </td>
+        <td style="background: #AEF1AE">
+          java.lang.Class.forName(EmployeeTableHandler.this.driver)
+        </td>
+      </tr><tr>
+        <td>
+          108
+        </td>
+        <td>
+          87
+        </td>
+        <td>
+          2891
+          -
+          2897
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          com.knoldus.EmployeeTableHandler.driver
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.driver
+        </td>
+      </tr><tr>
+        <td>
+          109
+        </td>
+        <td>
+          89
+        </td>
+        <td>
+          2925
+          -
+          2951
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.createStatement
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.createStatement()
+        </td>
+      </tr><tr>
+        <td>
+          110
+        </td>
+        <td>
+          91
+        </td>
+        <td>
+          2971
+          -
+          3201
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Statement.executeUpdate
+        </td>
+        <td style="background: #F0ADAD">
+          statement.executeUpdate(&quot;insert into Employee(Emp_ID,Name,Address,Phone,Dept_ID,Project_ID) values(\'&quot;.+(obj.Emp_ID).+(&quot;\',\'&quot;).+(obj.Name).+(&quot;\',\'&quot;).+(obj.Address).+(&quot;\',\'&quot;).+(obj.Phone).+(&quot;\',\'&quot;).+(obj.Dept_ID).+(&quot;\',\'&quot;).+(obj.Project_ID).+(&quot;\')&quot;))
+        </td>
+      </tr><tr>
+        <td>
+          110
+        </td>
+        <td>
+          90
+        </td>
+        <td>
+          2995
+          -
+          3200
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.String.+
+        </td>
+        <td style="background: #F0ADAD">
+          &quot;insert into Employee(Emp_ID,Name,Address,Phone,Dept_ID,Project_ID) values(\'&quot;.+(obj.Emp_ID).+(&quot;\',\'&quot;).+(obj.Name).+(&quot;\',\'&quot;).+(obj.Address).+(&quot;\',\'&quot;).+(obj.Phone).+(&quot;\',\'&quot;).+(obj.Dept_ID).+(&quot;\',\'&quot;).+(obj.Project_ID).+(&quot;\')&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          111
+        </td>
+        <td>
+          92
+        </td>
+        <td>
+          3210
+          -
+          3210
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          ()
+        </td>
+      </tr><tr>
+        <td>
+          113
+        </td>
+        <td>
+          94
+        </td>
+        <td>
+          3265
+          -
+          3282
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Throwable.printStackTrace
+        </td>
+        <td style="background: #AEF1AE">
+          e.printStackTrace()
+        </td>
+      </tr><tr>
+        <td>
+          114
+        </td>
+        <td>
+          95
+        </td>
+        <td>
+          3296
+          -
+          3301
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          false
+        </td>
+      </tr><tr>
+        <td>
+          117
+        </td>
+        <td>
+          96
+        </td>
+        <td>
+          3332
+          -
+          3348
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.close
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.close()
+        </td>
+      </tr><tr>
+        <td>
+          118
+        </td>
+        <td>
+          97
+        </td>
+        <td>
+          3357
+          -
+          3361
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          true
+        </td>
+      </tr><tr>
+        <td>
+          121
+        </td>
+        <td>
+          104
+        </td>
+        <td>
+          3423
+          -
+          3628
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          {
+  java.lang.Class.forName(EmployeeTableHandler.this.driver);
+  val statement: java.sql.Statement = EmployeeTableHandler.this.connection.createStatement();
+  val rs: Int = statement.executeUpdate(&quot;insert into Department(Dept_ID,Name) values(\'&quot;.+(obj.Dept_ID).+(&quot;\',\'&quot;).+(obj.Name).+(&quot;\')&quot;));
+  ()
+}
+        </td>
+      </tr><tr>
+        <td>
+          122
+        </td>
+        <td>
+          98
+        </td>
+        <td>
+          3437
+          -
+          3443
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          com.knoldus.EmployeeTableHandler.driver
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.driver
+        </td>
+      </tr><tr>
+        <td>
+          122
+        </td>
+        <td>
+          99
+        </td>
+        <td>
+          3423
+          -
+          3444
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Class.forName
+        </td>
+        <td style="background: #AEF1AE">
+          java.lang.Class.forName(EmployeeTableHandler.this.driver)
+        </td>
+      </tr><tr>
+        <td>
+          123
+        </td>
+        <td>
+          100
+        </td>
+        <td>
+          3471
+          -
+          3497
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.createStatement
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.createStatement()
+        </td>
+      </tr><tr>
+        <td>
+          124
+        </td>
+        <td>
+          101
+        </td>
+        <td>
+          3541
+          -
+          3627
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.String.+
+        </td>
+        <td style="background: #F0ADAD">
+          &quot;insert into Department(Dept_ID,Name) values(\'&quot;.+(obj.Dept_ID).+(&quot;\',\'&quot;).+(obj.Name).+(&quot;\')&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          124
+        </td>
+        <td>
+          102
+        </td>
+        <td>
+          3517
+          -
+          3628
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Statement.executeUpdate
+        </td>
+        <td style="background: #F0ADAD">
+          statement.executeUpdate(&quot;insert into Department(Dept_ID,Name) values(\'&quot;.+(obj.Dept_ID).+(&quot;\',\'&quot;).+(obj.Name).+(&quot;\')&quot;))
+        </td>
+      </tr><tr>
+        <td>
+          125
+        </td>
+        <td>
+          103
+        </td>
+        <td>
+          3637
+          -
+          3637
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          ()
+        </td>
+      </tr><tr>
+        <td>
+          127
+        </td>
+        <td>
+          105
+        </td>
+        <td>
+          3692
+          -
+          3709
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Throwable.printStackTrace
+        </td>
+        <td style="background: #AEF1AE">
+          e.printStackTrace()
+        </td>
+      </tr><tr>
+        <td>
+          128
+        </td>
+        <td>
+          106
+        </td>
+        <td>
+          3723
+          -
+          3728
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          false
+        </td>
+      </tr><tr>
+        <td>
+          131
+        </td>
+        <td>
+          107
+        </td>
+        <td>
+          3759
+          -
+          3775
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.close
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.close()
+        </td>
+      </tr><tr>
+        <td>
+          132
+        </td>
+        <td>
+          108
+        </td>
+        <td>
+          3784
+          -
+          3788
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          true
+        </td>
+      </tr><tr>
+        <td>
+          135
+        </td>
+        <td>
+          115
+        </td>
+        <td>
+          3847
+          -
+          4120
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          {
+  java.lang.Class.forName(EmployeeTableHandler.this.driver);
+  val statement: java.sql.Statement = EmployeeTableHandler.this.connection.createStatement();
+  val rs: Int = statement.executeUpdate(&quot;insert into Project(Project_ID,Dept_ID,Name,Client_ID) values(\'&quot;.+(obj.Project_ID).+(&quot;\',\'&quot;).+(obj.Dept_ID).+(&quot;\',\'&quot;).+(obj.Name).+(&quot;\',\'&quot;).+(obj.Client_ID).+(&quot;\')&quot;));
+  ()
+}
+        </td>
+      </tr><tr>
+        <td>
+          136
+        </td>
+        <td>
+          110
+        </td>
+        <td>
+          3847
+          -
+          3868
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Class.forName
+        </td>
+        <td style="background: #AEF1AE">
+          java.lang.Class.forName(EmployeeTableHandler.this.driver)
+        </td>
+      </tr><tr>
+        <td>
+          136
+        </td>
+        <td>
+          109
+        </td>
+        <td>
+          3861
+          -
+          3867
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          com.knoldus.EmployeeTableHandler.driver
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.driver
+        </td>
+      </tr><tr>
+        <td>
+          137
+        </td>
+        <td>
+          111
+        </td>
+        <td>
+          3895
+          -
+          3921
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.createStatement
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.createStatement()
+        </td>
+      </tr><tr>
+        <td>
+          138
+        </td>
+        <td>
+          113
+        </td>
+        <td>
+          3941
+          -
+          4120
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Statement.executeUpdate
+        </td>
+        <td style="background: #F0ADAD">
+          statement.executeUpdate(&quot;insert into Project(Project_ID,Dept_ID,Name,Client_ID) values(\'&quot;.+(obj.Project_ID).+(&quot;\',\'&quot;).+(obj.Dept_ID).+(&quot;\',\'&quot;).+(obj.Name).+(&quot;\',\'&quot;).+(obj.Client_ID).+(&quot;\')&quot;))
+        </td>
+      </tr><tr>
+        <td>
+          138
+        </td>
+        <td>
+          112
+        </td>
+        <td>
+          3965
+          -
+          4119
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.String.+
+        </td>
+        <td style="background: #F0ADAD">
+          &quot;insert into Project(Project_ID,Dept_ID,Name,Client_ID) values(\'&quot;.+(obj.Project_ID).+(&quot;\',\'&quot;).+(obj.Dept_ID).+(&quot;\',\'&quot;).+(obj.Name).+(&quot;\',\'&quot;).+(obj.Client_ID).+(&quot;\')&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          139
+        </td>
+        <td>
+          114
+        </td>
+        <td>
+          4129
+          -
+          4129
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          ()
+        </td>
+      </tr><tr>
+        <td>
+          141
+        </td>
+        <td>
+          116
+        </td>
+        <td>
+          4184
+          -
+          4201
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Throwable.printStackTrace
+        </td>
+        <td style="background: #AEF1AE">
+          e.printStackTrace()
+        </td>
+      </tr><tr>
+        <td>
+          142
+        </td>
+        <td>
+          117
+        </td>
+        <td>
+          4215
+          -
+          4220
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          false
+        </td>
+      </tr><tr>
+        <td>
+          145
+        </td>
+        <td>
+          118
+        </td>
+        <td>
+          4251
+          -
+          4267
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.close
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.close()
+        </td>
+      </tr><tr>
+        <td>
+          146
+        </td>
+        <td>
+          119
+        </td>
+        <td>
+          4276
+          -
+          4280
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          true
+        </td>
+      </tr><tr>
+        <td>
+          149
+        </td>
+        <td>
+          126
+        </td>
+        <td>
+          4338
+          -
+          4610
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          {
+  java.lang.Class.forName(EmployeeTableHandler.this.driver);
+  val statement: java.sql.Statement = EmployeeTableHandler.this.connection.createStatement();
+  val rs: Int = statement.executeUpdate(&quot;insert into Client(Client_ID,Project_ID,Name,Address) values(\'&quot;.+(obj.Client_ID).+(&quot;\',\'&quot;).+(obj.Project_ID).+(&quot;\',\'&quot;).+(obj.Name).+(&quot;\',\'&quot;).+(obj.Address).+(&quot;\')&quot;));
+  ()
+}
+        </td>
+      </tr><tr>
+        <td>
+          150
+        </td>
+        <td>
+          121
+        </td>
+        <td>
+          4338
+          -
+          4359
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Class.forName
+        </td>
+        <td style="background: #AEF1AE">
+          java.lang.Class.forName(EmployeeTableHandler.this.driver)
+        </td>
+      </tr><tr>
+        <td>
+          150
+        </td>
+        <td>
+          120
+        </td>
+        <td>
+          4352
+          -
+          4358
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          com.knoldus.EmployeeTableHandler.driver
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.driver
+        </td>
+      </tr><tr>
+        <td>
+          151
+        </td>
+        <td>
+          122
+        </td>
+        <td>
+          4386
+          -
+          4412
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.createStatement
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.createStatement()
+        </td>
+      </tr><tr>
+        <td>
+          152
+        </td>
+        <td>
+          124
+        </td>
+        <td>
+          4432
+          -
+          4610
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Statement.executeUpdate
+        </td>
+        <td style="background: #F0ADAD">
+          statement.executeUpdate(&quot;insert into Client(Client_ID,Project_ID,Name,Address) values(\'&quot;.+(obj.Client_ID).+(&quot;\',\'&quot;).+(obj.Project_ID).+(&quot;\',\'&quot;).+(obj.Name).+(&quot;\',\'&quot;).+(obj.Address).+(&quot;\')&quot;))
+        </td>
+      </tr><tr>
+        <td>
+          152
+        </td>
+        <td>
+          123
+        </td>
+        <td>
+          4456
+          -
+          4609
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.String.+
+        </td>
+        <td style="background: #F0ADAD">
+          &quot;insert into Client(Client_ID,Project_ID,Name,Address) values(\'&quot;.+(obj.Client_ID).+(&quot;\',\'&quot;).+(obj.Project_ID).+(&quot;\',\'&quot;).+(obj.Name).+(&quot;\',\'&quot;).+(obj.Address).+(&quot;\')&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          153
+        </td>
+        <td>
+          125
+        </td>
+        <td>
+          4619
+          -
+          4619
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          ()
+        </td>
+      </tr><tr>
+        <td>
+          155
+        </td>
+        <td>
+          127
+        </td>
+        <td>
+          4674
+          -
+          4691
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Throwable.printStackTrace
+        </td>
+        <td style="background: #AEF1AE">
+          e.printStackTrace()
+        </td>
+      </tr><tr>
+        <td>
+          156
+        </td>
+        <td>
+          128
+        </td>
+        <td>
+          4705
+          -
+          4710
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          false
+        </td>
+      </tr><tr>
+        <td>
+          159
+        </td>
+        <td>
+          129
+        </td>
+        <td>
+          4741
+          -
+          4757
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.close
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.close()
+        </td>
+      </tr><tr>
+        <td>
+          160
+        </td>
+        <td>
+          130
+        </td>
+        <td>
+          4766
+          -
+          4770
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          true
+        </td>
+      </tr><tr>
+        <td>
+          162
+        </td>
+        <td>
+          131
+        </td>
+        <td>
+          4798
+          -
+          4820
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.Predef.println
+        </td>
+        <td style="background: #F0ADAD">
+          scala.Predef.println(&quot;Wrong Input&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          162
+        </td>
+        <td>
+          132
+        </td>
+        <td>
+          4821
+          -
+          4826
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          false
+        </td>
+      </tr><tr>
+        <td>
+          171
+        </td>
+        <td>
+          139
+        </td>
+        <td>
+          4939
+          -
+          5260
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          {
+  java.lang.Class.forName(EmployeeTableHandler.this.driver);
+  val statement: java.sql.Statement = EmployeeTableHandler.this.connection.createStatement();
+  val rs: Int = statement.executeUpdate(&quot;update Employee SET Name=\'&quot;.+(obj.Name).+(&quot;\',Address=\'&quot;).+(obj.Address).+(&quot;\',Phone=\'&quot;).+(obj.Phone).+(&quot;\',Dept_ID=\'&quot;).+(obj.Dept_ID).+(&quot;\',Project_ID=\'&quot;).+(obj.Project_ID).+(&quot;\' where Emp_ID==\'&quot;).+(obj.Emp_ID).+(&quot;\'&quot;));
+  ()
+}
+        </td>
+      </tr><tr>
+        <td>
+          172
+        </td>
+        <td>
+          134
+        </td>
+        <td>
+          4939
+          -
+          4960
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Class.forName
+        </td>
+        <td style="background: #AEF1AE">
+          java.lang.Class.forName(EmployeeTableHandler.this.driver)
+        </td>
+      </tr><tr>
+        <td>
+          172
+        </td>
+        <td>
+          133
+        </td>
+        <td>
+          4953
+          -
+          4959
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          com.knoldus.EmployeeTableHandler.driver
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.driver
+        </td>
+      </tr><tr>
+        <td>
+          173
+        </td>
+        <td>
+          135
+        </td>
+        <td>
+          4987
+          -
+          5013
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.createStatement
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.createStatement()
+        </td>
+      </tr><tr>
+        <td>
+          174
+        </td>
+        <td>
+          137
+        </td>
+        <td>
+          5033
+          -
+          5260
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Statement.executeUpdate
+        </td>
+        <td style="background: #F0ADAD">
+          statement.executeUpdate(&quot;update Employee SET Name=\'&quot;.+(obj.Name).+(&quot;\',Address=\'&quot;).+(obj.Address).+(&quot;\',Phone=\'&quot;).+(obj.Phone).+(&quot;\',Dept_ID=\'&quot;).+(obj.Dept_ID).+(&quot;\',Project_ID=\'&quot;).+(obj.Project_ID).+(&quot;\' where Emp_ID==\'&quot;).+(obj.Emp_ID).+(&quot;\'&quot;))
+        </td>
+      </tr><tr>
+        <td>
+          174
+        </td>
+        <td>
+          136
+        </td>
+        <td>
+          5057
+          -
+          5259
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.String.+
+        </td>
+        <td style="background: #F0ADAD">
+          &quot;update Employee SET Name=\'&quot;.+(obj.Name).+(&quot;\',Address=\'&quot;).+(obj.Address).+(&quot;\',Phone=\'&quot;).+(obj.Phone).+(&quot;\',Dept_ID=\'&quot;).+(obj.Dept_ID).+(&quot;\',Project_ID=\'&quot;).+(obj.Project_ID).+(&quot;\' where Emp_ID==\'&quot;).+(obj.Emp_ID).+(&quot;\'&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          175
+        </td>
+        <td>
+          138
+        </td>
+        <td>
+          5269
+          -
+          5269
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          ()
+        </td>
+      </tr><tr>
+        <td>
+          177
+        </td>
+        <td>
+          140
+        </td>
+        <td>
+          5324
+          -
+          5341
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Throwable.printStackTrace
+        </td>
+        <td style="background: #AEF1AE">
+          e.printStackTrace()
+        </td>
+      </tr><tr>
+        <td>
+          178
+        </td>
+        <td>
+          141
+        </td>
+        <td>
+          5355
+          -
+          5360
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          false
+        </td>
+      </tr><tr>
+        <td>
+          181
+        </td>
+        <td>
+          142
+        </td>
+        <td>
+          5391
+          -
+          5407
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.close
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.close()
+        </td>
+      </tr><tr>
+        <td>
+          182
+        </td>
+        <td>
+          143
+        </td>
+        <td>
+          5416
+          -
+          5420
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          true
+        </td>
+      </tr><tr>
+        <td>
+          185
+        </td>
+        <td>
+          150
+        </td>
+        <td>
+          5482
+          -
+          5680
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          {
+  java.lang.Class.forName(EmployeeTableHandler.this.driver);
+  val statement: java.sql.Statement = EmployeeTableHandler.this.connection.createStatement();
+  val rs: Int = statement.executeUpdate(&quot;update Department SET Name=\'&quot;.+(obj.Name).+(&quot;\' where Dept_ID=\'&quot;).+(obj.Dept_ID).+(&quot;\'&quot;));
+  ()
+}
+        </td>
+      </tr><tr>
+        <td>
+          186
+        </td>
+        <td>
+          145
+        </td>
+        <td>
+          5482
+          -
+          5503
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Class.forName
+        </td>
+        <td style="background: #AEF1AE">
+          java.lang.Class.forName(EmployeeTableHandler.this.driver)
+        </td>
+      </tr><tr>
+        <td>
+          186
+        </td>
+        <td>
+          144
+        </td>
+        <td>
+          5496
+          -
+          5502
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          com.knoldus.EmployeeTableHandler.driver
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.driver
+        </td>
+      </tr><tr>
+        <td>
+          187
+        </td>
+        <td>
+          146
+        </td>
+        <td>
+          5530
+          -
+          5556
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.createStatement
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.createStatement()
+        </td>
+      </tr><tr>
+        <td>
+          188
+        </td>
+        <td>
+          148
+        </td>
+        <td>
+          5576
+          -
+          5680
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Statement.executeUpdate
+        </td>
+        <td style="background: #F0ADAD">
+          statement.executeUpdate(&quot;update Department SET Name=\'&quot;.+(obj.Name).+(&quot;\' where Dept_ID=\'&quot;).+(obj.Dept_ID).+(&quot;\'&quot;))
+        </td>
+      </tr><tr>
+        <td>
+          188
+        </td>
+        <td>
+          147
+        </td>
+        <td>
+          5600
+          -
+          5679
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.String.+
+        </td>
+        <td style="background: #F0ADAD">
+          &quot;update Department SET Name=\'&quot;.+(obj.Name).+(&quot;\' where Dept_ID=\'&quot;).+(obj.Dept_ID).+(&quot;\'&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          189
+        </td>
+        <td>
+          149
+        </td>
+        <td>
+          5689
+          -
+          5689
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          ()
+        </td>
+      </tr><tr>
+        <td>
+          191
+        </td>
+        <td>
+          151
+        </td>
+        <td>
+          5744
+          -
+          5761
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Throwable.printStackTrace
+        </td>
+        <td style="background: #AEF1AE">
+          e.printStackTrace()
+        </td>
+      </tr><tr>
+        <td>
+          192
+        </td>
+        <td>
+          152
+        </td>
+        <td>
+          5775
+          -
+          5780
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          false
+        </td>
+      </tr><tr>
+        <td>
+          195
+        </td>
+        <td>
+          153
+        </td>
+        <td>
+          5811
+          -
+          5827
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.close
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.close()
+        </td>
+      </tr><tr>
+        <td>
+          196
+        </td>
+        <td>
+          154
+        </td>
+        <td>
+          5836
+          -
+          5840
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          true
+        </td>
+      </tr><tr>
+        <td>
+          199
+        </td>
+        <td>
+          161
+        </td>
+        <td>
+          5899
+          -
+          6169
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          {
+  java.lang.Class.forName(EmployeeTableHandler.this.driver);
+  val statement: java.sql.Statement = EmployeeTableHandler.this.connection.createStatement();
+  val rs: Int = statement.executeUpdate(&quot;update Project SET Dept_ID=\'&quot;.+(obj.Dept_ID).+(&quot;\',Name=\'&quot;).+(obj.Name).+(&quot;\',Client_ID=\'&quot;).+(obj.Client_ID).+(&quot;\' where Project_ID==\'&quot;).+(obj.Project_ID).+(&quot;\'&quot;));
+  ()
+}
+        </td>
+      </tr><tr>
+        <td>
+          200
+        </td>
+        <td>
+          155
+        </td>
+        <td>
+          5913
+          -
+          5919
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          com.knoldus.EmployeeTableHandler.driver
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.driver
+        </td>
+      </tr><tr>
+        <td>
+          200
+        </td>
+        <td>
+          156
+        </td>
+        <td>
+          5899
+          -
+          5920
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Class.forName
+        </td>
+        <td style="background: #AEF1AE">
+          java.lang.Class.forName(EmployeeTableHandler.this.driver)
+        </td>
+      </tr><tr>
+        <td>
+          201
+        </td>
+        <td>
+          157
+        </td>
+        <td>
+          5947
+          -
+          5973
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.createStatement
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.createStatement()
+        </td>
+      </tr><tr>
+        <td>
+          202
+        </td>
+        <td>
+          158
+        </td>
+        <td>
+          6017
+          -
+          6168
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.String.+
+        </td>
+        <td style="background: #F0ADAD">
+          &quot;update Project SET Dept_ID=\'&quot;.+(obj.Dept_ID).+(&quot;\',Name=\'&quot;).+(obj.Name).+(&quot;\',Client_ID=\'&quot;).+(obj.Client_ID).+(&quot;\' where Project_ID==\'&quot;).+(obj.Project_ID).+(&quot;\'&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          202
+        </td>
+        <td>
+          159
+        </td>
+        <td>
+          5993
+          -
+          6169
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Statement.executeUpdate
+        </td>
+        <td style="background: #F0ADAD">
+          statement.executeUpdate(&quot;update Project SET Dept_ID=\'&quot;.+(obj.Dept_ID).+(&quot;\',Name=\'&quot;).+(obj.Name).+(&quot;\',Client_ID=\'&quot;).+(obj.Client_ID).+(&quot;\' where Project_ID==\'&quot;).+(obj.Project_ID).+(&quot;\'&quot;))
+        </td>
+      </tr><tr>
+        <td>
+          203
+        </td>
+        <td>
+          160
+        </td>
+        <td>
+          6178
+          -
+          6178
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          ()
+        </td>
+      </tr><tr>
+        <td>
+          205
+        </td>
+        <td>
+          162
+        </td>
+        <td>
+          6233
+          -
+          6250
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Throwable.printStackTrace
+        </td>
+        <td style="background: #AEF1AE">
+          e.printStackTrace()
+        </td>
+      </tr><tr>
+        <td>
+          206
+        </td>
+        <td>
+          163
+        </td>
+        <td>
+          6264
+          -
+          6269
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          false
+        </td>
+      </tr><tr>
+        <td>
+          209
+        </td>
+        <td>
+          164
+        </td>
+        <td>
+          6300
+          -
+          6316
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.close
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.close()
+        </td>
+      </tr><tr>
+        <td>
+          210
+        </td>
+        <td>
+          165
+        </td>
+        <td>
+          6325
+          -
+          6329
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          true
+        </td>
+      </tr><tr>
+        <td>
+          213
+        </td>
+        <td>
+          172
+        </td>
+        <td>
+          6387
+          -
+          6656
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          {
+  java.lang.Class.forName(EmployeeTableHandler.this.driver);
+  val statement: java.sql.Statement = EmployeeTableHandler.this.connection.createStatement();
+  val rs: Int = statement.executeUpdate(&quot;update Client SET Project_ID=\'&quot;.+(obj.Project_ID).+(&quot;\',Name=\'&quot;).+(obj.Name).+(&quot;\',Address=\'&quot;).+(obj.Address).+(&quot;\' where Client_ID==\'&quot;).+(obj.Client_ID).+(&quot;\'&quot;));
+  ()
+}
+        </td>
+      </tr><tr>
+        <td>
+          214
+        </td>
+        <td>
+          167
+        </td>
+        <td>
+          6387
+          -
+          6408
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Class.forName
+        </td>
+        <td style="background: #AEF1AE">
+          java.lang.Class.forName(EmployeeTableHandler.this.driver)
+        </td>
+      </tr><tr>
+        <td>
+          214
+        </td>
+        <td>
+          166
+        </td>
+        <td>
+          6401
+          -
+          6407
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          com.knoldus.EmployeeTableHandler.driver
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.driver
+        </td>
+      </tr><tr>
+        <td>
+          215
+        </td>
+        <td>
+          168
+        </td>
+        <td>
+          6435
+          -
+          6461
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.createStatement
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.createStatement()
+        </td>
+      </tr><tr>
+        <td>
+          216
+        </td>
+        <td>
+          169
+        </td>
+        <td>
+          6505
+          -
+          6655
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.String.+
+        </td>
+        <td style="background: #F0ADAD">
+          &quot;update Client SET Project_ID=\'&quot;.+(obj.Project_ID).+(&quot;\',Name=\'&quot;).+(obj.Name).+(&quot;\',Address=\'&quot;).+(obj.Address).+(&quot;\' where Client_ID==\'&quot;).+(obj.Client_ID).+(&quot;\'&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          216
+        </td>
+        <td>
+          170
+        </td>
+        <td>
+          6481
+          -
+          6656
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Statement.executeUpdate
+        </td>
+        <td style="background: #F0ADAD">
+          statement.executeUpdate(&quot;update Client SET Project_ID=\'&quot;.+(obj.Project_ID).+(&quot;\',Name=\'&quot;).+(obj.Name).+(&quot;\',Address=\'&quot;).+(obj.Address).+(&quot;\' where Client_ID==\'&quot;).+(obj.Client_ID).+(&quot;\'&quot;))
+        </td>
+      </tr><tr>
+        <td>
+          217
+        </td>
+        <td>
+          171
+        </td>
+        <td>
+          6665
+          -
+          6665
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          ()
+        </td>
+      </tr><tr>
+        <td>
+          219
+        </td>
+        <td>
+          173
+        </td>
+        <td>
+          6720
+          -
+          6737
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Throwable.printStackTrace
+        </td>
+        <td style="background: #AEF1AE">
+          e.printStackTrace()
+        </td>
+      </tr><tr>
+        <td>
+          220
+        </td>
+        <td>
+          174
+        </td>
+        <td>
+          6751
+          -
+          6756
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          false
+        </td>
+      </tr><tr>
+        <td>
+          223
+        </td>
+        <td>
+          175
+        </td>
+        <td>
+          6787
+          -
+          6803
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.close
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.close()
+        </td>
+      </tr><tr>
+        <td>
+          224
+        </td>
+        <td>
+          176
+        </td>
+        <td>
+          6812
+          -
+          6816
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          true
+        </td>
+      </tr><tr>
+        <td>
+          226
+        </td>
+        <td>
+          178
+        </td>
+        <td>
+          6867
+          -
+          6872
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          false
+        </td>
+      </tr><tr>
+        <td>
+          226
+        </td>
+        <td>
+          177
+        </td>
+        <td>
+          6844
+          -
+          6866
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.Predef.println
+        </td>
+        <td style="background: #F0ADAD">
+          scala.Predef.println(&quot;Wrong Input&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          234
+        </td>
+        <td>
+          185
+        </td>
+        <td>
+          6988
+          -
+          7164
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          {
+  java.lang.Class.forName(EmployeeTableHandler.this.driver);
+  val statement: java.sql.Statement = EmployeeTableHandler.this.connection.createStatement();
+  val rs: Int = statement.executeUpdate(&quot;Delete from Employee where Emp_ID==\'&quot;.+(obj.Emp_ID).+(&quot;\'&quot;));
+  ()
+}
+        </td>
+      </tr><tr>
+        <td>
+          236
+        </td>
+        <td>
+          180
+        </td>
+        <td>
+          6988
+          -
+          7009
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Class.forName
+        </td>
+        <td style="background: #AEF1AE">
+          java.lang.Class.forName(EmployeeTableHandler.this.driver)
+        </td>
+      </tr><tr>
+        <td>
+          236
+        </td>
+        <td>
+          179
+        </td>
+        <td>
+          7002
+          -
+          7008
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          com.knoldus.EmployeeTableHandler.driver
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.driver
+        </td>
+      </tr><tr>
+        <td>
+          237
+        </td>
+        <td>
+          181
+        </td>
+        <td>
+          7036
+          -
+          7062
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.createStatement
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.createStatement()
+        </td>
+      </tr><tr>
+        <td>
+          238
+        </td>
+        <td>
+          182
+        </td>
+        <td>
+          7106
+          -
+          7163
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.String.+
+        </td>
+        <td style="background: #F0ADAD">
+          &quot;Delete from Employee where Emp_ID==\'&quot;.+(obj.Emp_ID).+(&quot;\'&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          238
+        </td>
+        <td>
+          183
+        </td>
+        <td>
+          7082
+          -
+          7164
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Statement.executeUpdate
+        </td>
+        <td style="background: #F0ADAD">
+          statement.executeUpdate(&quot;Delete from Employee where Emp_ID==\'&quot;.+(obj.Emp_ID).+(&quot;\'&quot;))
+        </td>
+      </tr><tr>
+        <td>
+          239
+        </td>
+        <td>
+          184
+        </td>
+        <td>
+          7173
+          -
+          7173
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          ()
+        </td>
+      </tr><tr>
+        <td>
+          243
+        </td>
+        <td>
+          186
+        </td>
+        <td>
+          7230
+          -
+          7247
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Throwable.printStackTrace
+        </td>
+        <td style="background: #AEF1AE">
+          e.printStackTrace()
+        </td>
+      </tr><tr>
+        <td>
+          244
+        </td>
+        <td>
+          187
+        </td>
+        <td>
+          7261
+          -
+          7266
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          false
+        </td>
+      </tr><tr>
+        <td>
+          247
+        </td>
+        <td>
+          188
+        </td>
+        <td>
+          7297
+          -
+          7313
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.close
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.close()
+        </td>
+      </tr><tr>
+        <td>
+          248
+        </td>
+        <td>
+          189
+        </td>
+        <td>
+          7322
+          -
+          7326
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          true
+        </td>
+      </tr><tr>
+        <td>
+          251
+        </td>
+        <td>
+          196
+        </td>
+        <td>
+          7392
+          -
+          7572
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          {
+  java.lang.Class.forName(EmployeeTableHandler.this.driver);
+  val statement: java.sql.Statement = EmployeeTableHandler.this.connection.createStatement();
+  val rs: Int = statement.executeUpdate(&quot;Delete from Department where Dept_ID==\'&quot;.+(obj.Dept_ID).+(&quot;\'&quot;));
+  ()
+}
+        </td>
+      </tr><tr>
+        <td>
+          253
+        </td>
+        <td>
+          191
+        </td>
+        <td>
+          7392
+          -
+          7413
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Class.forName
+        </td>
+        <td style="background: #AEF1AE">
+          java.lang.Class.forName(EmployeeTableHandler.this.driver)
+        </td>
+      </tr><tr>
+        <td>
+          253
+        </td>
+        <td>
+          190
+        </td>
+        <td>
+          7406
+          -
+          7412
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          com.knoldus.EmployeeTableHandler.driver
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.driver
+        </td>
+      </tr><tr>
+        <td>
+          254
+        </td>
+        <td>
+          192
+        </td>
+        <td>
+          7440
+          -
+          7466
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.createStatement
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.createStatement()
+        </td>
+      </tr><tr>
+        <td>
+          255
+        </td>
+        <td>
+          194
+        </td>
+        <td>
+          7486
+          -
+          7572
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Statement.executeUpdate
+        </td>
+        <td style="background: #F0ADAD">
+          statement.executeUpdate(&quot;Delete from Department where Dept_ID==\'&quot;.+(obj.Dept_ID).+(&quot;\'&quot;))
+        </td>
+      </tr><tr>
+        <td>
+          255
+        </td>
+        <td>
+          193
+        </td>
+        <td>
+          7510
+          -
+          7571
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.String.+
+        </td>
+        <td style="background: #F0ADAD">
+          &quot;Delete from Department where Dept_ID==\'&quot;.+(obj.Dept_ID).+(&quot;\'&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          256
+        </td>
+        <td>
+          195
+        </td>
+        <td>
+          7581
+          -
+          7581
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          ()
+        </td>
+      </tr><tr>
+        <td>
+          260
+        </td>
+        <td>
+          197
+        </td>
+        <td>
+          7638
+          -
+          7655
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Throwable.printStackTrace
+        </td>
+        <td style="background: #AEF1AE">
+          e.printStackTrace()
+        </td>
+      </tr><tr>
+        <td>
+          261
+        </td>
+        <td>
+          198
+        </td>
+        <td>
+          7669
+          -
+          7674
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          false
+        </td>
+      </tr><tr>
+        <td>
+          264
+        </td>
+        <td>
+          199
+        </td>
+        <td>
+          7705
+          -
+          7721
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.close
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.close()
+        </td>
+      </tr><tr>
+        <td>
+          265
+        </td>
+        <td>
+          200
+        </td>
+        <td>
+          7730
+          -
+          7734
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          true
+        </td>
+      </tr><tr>
+        <td>
+          268
+        </td>
+        <td>
+          207
+        </td>
+        <td>
+          7797
+          -
+          7980
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          {
+  java.lang.Class.forName(EmployeeTableHandler.this.driver);
+  val statement: java.sql.Statement = EmployeeTableHandler.this.connection.createStatement();
+  val rs: Int = statement.executeUpdate(&quot;Delete from Project where Project_ID==\'&quot;.+(obj.Project_ID).+(&quot;\'&quot;));
+  ()
+}
+        </td>
+      </tr><tr>
+        <td>
+          270
+        </td>
+        <td>
+          202
+        </td>
+        <td>
+          7797
+          -
+          7818
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Class.forName
+        </td>
+        <td style="background: #AEF1AE">
+          java.lang.Class.forName(EmployeeTableHandler.this.driver)
+        </td>
+      </tr><tr>
+        <td>
+          270
+        </td>
+        <td>
+          201
+        </td>
+        <td>
+          7811
+          -
+          7817
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          com.knoldus.EmployeeTableHandler.driver
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.driver
+        </td>
+      </tr><tr>
+        <td>
+          271
+        </td>
+        <td>
+          203
+        </td>
+        <td>
+          7845
+          -
+          7871
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.createStatement
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.createStatement()
+        </td>
+      </tr><tr>
+        <td>
+          272
+        </td>
+        <td>
+          205
+        </td>
+        <td>
+          7891
+          -
+          7980
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Statement.executeUpdate
+        </td>
+        <td style="background: #F0ADAD">
+          statement.executeUpdate(&quot;Delete from Project where Project_ID==\'&quot;.+(obj.Project_ID).+(&quot;\'&quot;))
+        </td>
+      </tr><tr>
+        <td>
+          272
+        </td>
+        <td>
+          204
+        </td>
+        <td>
+          7915
+          -
+          7979
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.String.+
+        </td>
+        <td style="background: #F0ADAD">
+          &quot;Delete from Project where Project_ID==\'&quot;.+(obj.Project_ID).+(&quot;\'&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          273
+        </td>
+        <td>
+          206
+        </td>
+        <td>
+          7989
+          -
+          7989
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          ()
+        </td>
+      </tr><tr>
+        <td>
+          277
+        </td>
+        <td>
+          208
+        </td>
+        <td>
+          8046
+          -
+          8063
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Throwable.printStackTrace
+        </td>
+        <td style="background: #AEF1AE">
+          e.printStackTrace()
+        </td>
+      </tr><tr>
+        <td>
+          278
+        </td>
+        <td>
+          209
+        </td>
+        <td>
+          8077
+          -
+          8082
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          false
+        </td>
+      </tr><tr>
+        <td>
+          281
+        </td>
+        <td>
+          210
+        </td>
+        <td>
+          8113
+          -
+          8129
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.close
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.close()
+        </td>
+      </tr><tr>
+        <td>
+          282
+        </td>
+        <td>
+          211
+        </td>
+        <td>
+          8138
+          -
+          8142
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          true
+        </td>
+      </tr><tr>
+        <td>
+          285
+        </td>
+        <td>
+          218
+        </td>
+        <td>
+          8204
+          -
+          8384
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          {
+  java.lang.Class.forName(EmployeeTableHandler.this.driver);
+  val statement: java.sql.Statement = EmployeeTableHandler.this.connection.createStatement();
+  val rs: Int = statement.executeUpdate(&quot;Delete from Client where Client_ID==\'&quot;.+(obj.Client_ID).+(&quot;\'&quot;));
+  ()
+}
+        </td>
+      </tr><tr>
+        <td>
+          287
+        </td>
+        <td>
+          213
+        </td>
+        <td>
+          8204
+          -
+          8225
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Class.forName
+        </td>
+        <td style="background: #AEF1AE">
+          java.lang.Class.forName(EmployeeTableHandler.this.driver)
+        </td>
+      </tr><tr>
+        <td>
+          287
+        </td>
+        <td>
+          212
+        </td>
+        <td>
+          8218
+          -
+          8224
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          com.knoldus.EmployeeTableHandler.driver
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.driver
+        </td>
+      </tr><tr>
+        <td>
+          288
+        </td>
+        <td>
+          214
+        </td>
+        <td>
+          8252
+          -
+          8278
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.createStatement
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.createStatement()
+        </td>
+      </tr><tr>
+        <td>
+          289
+        </td>
+        <td>
+          216
+        </td>
+        <td>
+          8298
+          -
+          8384
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Statement.executeUpdate
+        </td>
+        <td style="background: #F0ADAD">
+          statement.executeUpdate(&quot;Delete from Client where Client_ID==\'&quot;.+(obj.Client_ID).+(&quot;\'&quot;))
+        </td>
+      </tr><tr>
+        <td>
+          289
+        </td>
+        <td>
+          215
+        </td>
+        <td>
+          8322
+          -
+          8383
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.String.+
+        </td>
+        <td style="background: #F0ADAD">
+          &quot;Delete from Client where Client_ID==\'&quot;.+(obj.Client_ID).+(&quot;\'&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          290
+        </td>
+        <td>
+          217
+        </td>
+        <td>
+          8393
+          -
+          8393
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          ()
+        </td>
+      </tr><tr>
+        <td>
+          294
+        </td>
+        <td>
+          219
+        </td>
+        <td>
+          8450
+          -
+          8467
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.Throwable.printStackTrace
+        </td>
+        <td style="background: #AEF1AE">
+          e.printStackTrace()
+        </td>
+      </tr><tr>
+        <td>
+          295
+        </td>
+        <td>
+          220
+        </td>
+        <td>
+          8481
+          -
+          8486
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          false
+        </td>
+      </tr><tr>
+        <td>
+          298
+        </td>
+        <td>
+          221
+        </td>
+        <td>
+          8517
+          -
+          8533
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.sql.Connection.close
+        </td>
+        <td style="background: #AEF1AE">
+          EmployeeTableHandler.this.connection.close()
+        </td>
+      </tr><tr>
+        <td>
+          299
+        </td>
+        <td>
+          222
+        </td>
+        <td>
+          8542
+          -
+          8546
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          true
+        </td>
+      </tr><tr>
+        <td>
+          302
+        </td>
+        <td>
+          223
+        </td>
+        <td>
+          8586
+          -
+          8608
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.Predef.println
+        </td>
+        <td style="background: #F0ADAD">
+          scala.Predef.println(&quot;Wrong Input&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          303
+        </td>
+        <td>
+          224
+        </td>
+        <td>
+          8618
+          -
+          8623
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #F0ADAD">
+          false
+        </td>
+      </tr>
+    </table>
+          </div>
+        </div>
+      </body>
+    </html>
