@@ -1,0 +1,178 @@
+<scoverage 
+statement-count="48" statements-invoked="25" statement-rate="52.08" branch-rate="50.00" version="1.0" timestamp="1485952267514">
+    <packages>
+        <package name="com.knoldus" statement-count="48" statements-invoked="25" statement-rate="52.08">
+            <classes>
+                <class 
+                name="com.knoldus.EmployeeTableHandler" filename="com/knoldus/EmployeeTableHandler.scala" statement-count="48" statements-invoked="25" statement-rate="52.08" branch-rate="50.00">
+                    <methods>
+                        <method 
+                        name="com.knoldus/EmployeeTableHandler/selectTable" statement-count="18" statements-invoked="9" statement-rate="50.00" branch-rate="50.00">
+                            <statements>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="selectTable" start="555" end="555" line="19" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="selectTable" start="675" end="690" line="22" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="selectTable" start="853" end="857" line="31" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="selectTable" start="458" end="484" line="17" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="selectTable" start="651" end="709" line="22" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="selectTable" start="592" end="607" line="20" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="selectTable" start="562" end="569" line="19" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="selectTable" start="571" end="717" line="19" branch="true" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="selectTable" start="659" end="667" line="22" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="selectTable" start="832" end="848" line="30" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="selectTable" start="414" end="435" line="16" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="selectTable" start="659" end="708" line="22" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="selectTable" start="692" end="707" line="22" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="selectTable" start="428" end="434" line="16" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="selectTable" start="571" end="571" line="19" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="selectTable" start="500" end="548" line="18" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="selectTable" start="627" end="642" line="21" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="selectTable" start="555" end="555" line="19" branch="true" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.knoldus/EmployeeTableHandler/&lt;none&gt;" statement-count="8" statements-invoked="8" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="&lt;none&gt;" start="318" end="370" line="12" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="&lt;none&gt;" start="214" end="237" line="9" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="&lt;none&gt;" start="346" end="349" line="12" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="&lt;none&gt;" start="279" end="286" line="11" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="&lt;none&gt;" start="361" end="369" line="12" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="&lt;none&gt;" start="166" end="198" line="8" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="&lt;none&gt;" start="255" end="261" line="10" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="&lt;none&gt;" start="351" end="359" line="12" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.knoldus/EmployeeTableHandler/updateTable" statement-count="11" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                            <statements>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="updateTable" start="1925" end="2105" line="62" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="updateTable" start="1815" end="2106" line="59" branch="true" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="updateTable" start="1829" end="1835" line="60" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="updateTable" start="2209" end="2225" line="69" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="updateTable" start="2185" end="2190" line="66" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="updateTable" start="1859" end="1885" line="61" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="updateTable" start="2111" end="2111" line="63" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="updateTable" start="2158" end="2175" line="65" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="updateTable" start="2230" end="2234" line="70" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="updateTable" start="1815" end="1836" line="60" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="updateTable" start="1901" end="2106" line="62" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.knoldus/EmployeeTableHandler/insertTable" statement-count="11" statements-invoked="8" statement-rate="72.73" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="insertTable" start="1262" end="1262" line="40" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="insertTable" start="1328" end="1333" line="42" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="insertTable" start="1033" end="1059" line="38" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="insertTable" start="1075" end="1257" line="39" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="insertTable" start="1309" end="1326" line="42" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="insertTable" start="1366" end="1370" line="45" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="insertTable" start="989" end="1010" line="37" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="insertTable" start="1003" end="1009" line="37" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="insertTable" start="1345" end="1361" line="44" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="insertTable" start="1099" end="1256" line="39" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.knoldus" class="EmployeeTableHandler" class-type="Class" full-class-name="com.knoldus.EmployeeTableHandler" source="/home/akhil/IdeaProjects/Companysqlsbt/src/main/scala/com/knoldus/EmployeeTableHandler.scala" method="insertTable" start="989" end="1257" line="36" branch="true" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+            </classes>
+        </package>
+    </packages>
+</scoverage>
